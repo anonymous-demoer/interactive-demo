@@ -2,825 +2,938 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Melodia: Training-Free Music Editing Guided by Attention</title>
 
-  <!-- SEO & Social Media Meta Tags -->
-  <title>Melodia: Training-Free Music Editing Guided by Attention Probing</title>
-  <meta name="description"
-    content="Official project page for Melodia, a training-free music editing method that manipulates attention layers in pre-trained diffusion models to achieve high-fidelity timbre, genre, and mood transfer.">
-  <meta name="keywords"
-    content="Melodia, AI Music Editing, Diffusion Models, Training-Free, Attention Probing, Timbre Transfer, Genre Transfer, Mood Transfer">
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="YOUR_GITHUB_PAGES_URL">
-  <meta property="og:title" content="Melodia: Training-Free Music Editing Guided by Attention Probing">
-  <meta property="og:description"
-    content="Explore audio examples from our training-free music editing framework, which leverages attention manipulation in diffusion models.">
-  <meta property="og:image" content="static/images/melodia_banner.jpg">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="YOUR_GITHUB_PAGES_URL">
-  <meta name="twitter:title" content="Melodia: Training-Free Music Editing Guided by Attention Probing">
-  <meta name="twitter:description"
-    content="Explore audio examples from our training-free music editing framework, which leverages attention manipulation in diffusion models.">
-  <meta name="twitter:image" content="static/images/melodia_banner.jpg">
-
-  <!-- Fonts -->
+  <!-- Fonts: Using Inter for its excellent on-screen readability -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code&display=swap"
     rel="stylesheet">
 
-  <!-- CSS Frameworks and Libraries -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <!-- Icons: Font Awesome for iconography -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- Favicon -->
-  <link rel="icon" href="static/images/favicon.svg">
 
-  <!-- Embedded Custom Stylesheet -->
+  <!-- Embedded CSS: Polished Academic Theme v3 -->
   <style>
     /* =================================================================== */
-    /* == Melodia Demo Page - Final Polished Styles ====================== */
+    /* == Melodia Demo - "Polished Academic" Theme v3 ================== */
     /* =================================================================== */
 
+    /* --- 1. Global Variables & Base Setup --- */
     :root {
-      --dark-bg: #0D0D0D;
-      /* Deeper black for more contrast */
-      --content-bg: #1A1A1A;
-      /* Slightly lighter content background */
-      --border-color: #2E2E2E;
-      /* Softer border color */
-      --text-primary: #F5F5F7;
-      /* Apple's off-white for text */
-      --text-secondary: #A1A1A6;
-      /* Softer secondary text */
-      --primary-color: #B39DDB;
-      /* A more elegant, less saturated purple */
-      --primary-color-hover: #9575CD;
-      --highlight-glow: rgba(179, 157, 219, 0.4);
-      --shadow-color: rgba(0, 0, 0, 0.5);
+      --bg-color: #fdfdfd;
+      --content-bg: #ffffff;
+      --border-color: #e9ecef;
+      --text-primary: #212529;
+      --text-secondary: #6c757d;
+      --accent-color: #4A90E2;
+      /* A professional, scientific blue */
+      --accent-color-light: #7cb5f2;
+      --highlight-glow: rgba(74, 144, 226, 0.2);
+      --highlight-bg: linear-gradient(145deg, rgba(74, 144, 226, 0.05), rgba(74, 144, 226, 0.01));
+      --highlight-border: #a8c7e9;
+      --header-height: 70px;
+      /* For scroll-padding */
     }
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: var(--header-height);
     }
 
-    body.is-dark-mode {
-      background-color: var(--dark-bg);
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
       color: var(--text-primary);
-      font-family: 'Inter', sans-serif;
+      line-height: 1.7;
+      margin: 0;
     }
 
-
-    /* --- Final Polish: Hero Title Styling --- */
-    /* Redesigned the main title for more visual impact. */
-    .publication-title {
-      font-size: 4.5rem;
-      /* Larger font size */
-      font-weight: 800;
-      /* Bolder */
-      color: transparent;
-      /* Make text transparent */
-      background: linear-gradient(45deg, var(--primary-color), var(--text-primary));
-      /* Apply gradient */
-      -webkit-background-clip: text;
-      background-clip: text;
-      text-shadow: 0 0 25px var(--highlight-glow);
-      /* Add a subtle glow */
-      margin-bottom: 0.5rem;
-    }
-
-    .publication-subtitle {
-      color: var(--text-secondary);
-      font-weight: 500;
-      line-height: 1.5;
-    }
-
-    .button.is-primary-custom {
-      background-color: var(--primary-color);
-      border-color: transparent;
-      color: #1D1D1F;
-      /* Dark text on light button for contrast */
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-
-    .button.is-primary-custom:hover {
-      background-color: var(--primary-color-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 20px var(--highlight-glow);
-    }
-
-    .button.is-dark {
-      background-color: var(--content-bg);
-      border: 1px solid var(--border-color);
-      color: var(--text-primary);
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-
-    .button.is-dark:hover {
-      background-color: #2a2a2a;
-      border-color: var(--primary-color);
-      color: var(--primary-color);
+    /* --- 2. Layout & Containers --- */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
     }
 
     .section {
-      background-color: var(--dark-bg);
+      padding: 4.5rem 0;
     }
 
-    .title {
+    .section-separator {
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    /* --- 3. Header & Typography --- */
+    .hero {
+      text-align: center;
+      padding: 4rem 0 3rem 0;
+    }
+
+    .project-title {
+      font-size: 4rem;
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      margin-bottom: 0.75rem;
+      background: linear-gradient(45deg, var(--text-primary), #495057);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .project-subtitle {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section-title {
+      font-size: 2.75rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      margin-bottom: 3.5rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .abstract {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: justify;
+      font-size: 1.1rem;
+      color: #343a40;
+    }
+
+    /* --- 4. Tab Navigation --- */
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 3rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .tab-button {
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      border-bottom: 3px solid transparent;
+      transition: color 0.3s, border-color 0.3s;
+      margin-bottom: -1px;
+      /* Overlap border */
+    }
+
+    .tab-button:hover {
       color: var(--text-primary);
     }
 
-    .subtitle {
-      color: var(--text-secondary);
+    .tab-button.active {
+      color: var(--accent-color);
+      border-bottom-color: var(--accent-color);
     }
 
-    .content p,
-    .content li {
-      color: var(--text-secondary);
-      line-height: 1.7;
+    .tab-button.disabled {
+      color: #bdc3c7;
+      cursor: not-allowed;
     }
 
-    .results-container {
-      max-width: 1200px;
-      margin: 0 auto;
+    .tab-content {
+      display: none;
     }
 
-    /* --- Final Polish: Increased Section Spacing --- */
-    /* Added significant margin-top to create "breathing room" between sections. */
-    .section-title {
-      margin-top: 5rem;
-      /* Increased vertical spacing */
-      margin-bottom: 2.5rem;
-      position: relative;
-      font-weight: 700;
+    .tab-content.active {
+      display: block;
     }
 
-    .section-title.is-3 {
-      /* Abstract title */
+    /* --- 5. Content Cards & Audio Players --- */
+    .content-group-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-top: 3rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #dee2e6;
+    }
+
+    .content-group-title:first-child {
       margin-top: 0;
     }
 
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 3px;
-      background: var(--primary-color);
-      border-radius: 2px;
-      opacity: 0.8;
-    }
-
-    .demo-card {
+    .example-card {
       background-color: var(--content-bg);
       border: 1px solid var(--border-color);
       border-radius: 16px;
-      margin-bottom: 2.5rem;
-      padding: 1.5rem 2rem;
-      box-shadow: 0 8px 32px 0 var(--shadow-color);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 2rem 2.5rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
     }
 
-    .demo-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.6);
+    .example-card:hover {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      transform: translateY(-4px);
     }
 
-    .demo-card-title {
-      font-size: 1.25rem;
+    .example-title {
+      font-size: 1.5rem;
       font-weight: 600;
-      color: var(--text-primary);
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 1rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
     }
 
-    .demo-card-title code {
+    .example-title code {
       font-family: 'Fira Code', monospace;
-      color: var(--primary-color);
-      background: none;
-      padding: 0;
+      background-color: #e9ecef;
+      padding: 3px 8px;
+      border-radius: 6px;
+      color: var(--accent-color);
+      font-weight: 500;
+    }
+
+    .citation {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--text-secondary);
+      margin-left: 12px;
     }
 
     .comparison-grid {
       display: grid;
-      gap: 1.5rem;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
     }
 
-    .source-item {
-      grid-column: 1 / -1;
-      background-color: #2a2a2a;
+    .audio-item {
+      display: flex;
+      flex-direction: column;
+      background-color: #f8f9fa;
       padding: 1rem;
       border-radius: 12px;
-      border: 1px solid #4a4a4a;
+      border: 1px solid var(--border-color);
     }
 
-    .result-item {
-      background-color: #252525;
-      padding: 1rem;
-      border-radius: 12px;
-    }
-
-    .result-item.is-melodia {
-      background-color: rgba(179, 157, 219, 0.08);
-      border: 1px solid var(--primary-color);
-      box-shadow: 0 0 20px rgba(179, 157, 219, 0.15);
-    }
-
-    /* --- Final Polish: Enhanced Readability --- */
-    /* Increased contrast for all item titles for better readability. */
-    .item-title {
+    .audio-item-title {
       font-weight: 600;
-      /* Bolder for better visibility */
-      color: var(--text-primary);
-      /* Brighter color for all titles */
       margin-bottom: 0.75rem;
+      color: var(--text-primary);
       font-size: 0.9rem;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
 
-    .result-item.is-melodia .item-title {
-      color: var(--primary-color);
+    .source-item {
+      grid-column: 1 / -1;
+      background-color: #e9ecef;
+      padding: 1.5rem;
     }
 
-    .item-title .fa-star {
-      margin-right: 0.5rem;
+    .source-item .audio-item-title {
+      font-size: 1rem;
     }
 
     audio {
       width: 100%;
-      filter: invert(90%) sepia(20%) saturate(500%) hue-rotate(210deg) brightness(1.1);
+      margin-top: auto;
     }
 
-    .ablation-grid {
+    /* --- 6. Premium Highlighting & Before/After Layout --- */
+    .is-highlight {
+      background: var(--highlight-bg);
+      border: 1px solid var(--highlight-border);
+      box-shadow: 0 0 20px var(--highlight-glow);
+    }
+
+    .is-highlight .audio-item-title,
+    .is-highlight .ablation-desc h5,
+    .is-highlight .direct-comparison-item .audio-item-title {
+      color: var(--accent-color);
+    }
+
+    .is-highlight .fa-star {
+      margin-right: 8px;
+      color: var(--accent-color-light);
+    }
+
+    .direct-comparison-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .direct-comparison-arrow {
+      font-size: 2.5rem;
+      color: var(--accent-color-light);
+      text-align: center;
+    }
+
+    .direct-comparison-item .audio-item-title {
+      font-size: 1rem;
+    }
+
+
+    /* --- 7. Ablation Study Layout --- */
+    .ablation-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
     }
 
     .ablation-item {
       display: grid;
-      grid-template-columns: 300px 1fr;
-      gap: 2rem;
+      grid-template-columns: 320px 1fr;
       align-items: center;
-      padding: 1.25rem 0;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .ablation-item:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .ablation-item:first-child {
-      padding-top: 0;
+      gap: 2rem;
+      padding: 1rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      background-color: #f8f9fa;
+      transition: all 0.3s ease;
     }
 
     .ablation-desc h5 {
       font-weight: 600;
       color: var(--text-primary);
-      margin-bottom: 0.25rem;
+      margin: 0 0 0.25rem 0;
+      font-size: 1rem;
     }
 
     .ablation-desc p {
       font-size: 0.95rem;
       color: var(--text-secondary);
       line-height: 1.6;
+      margin: 0;
     }
 
-    /* --- New Layout for Multi-Task Showcase --- */
-    .multi-task-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      /* Start with a single column */
-      gap: 2rem;
-    }
-
-    .task-pair {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      /* Source | Arrow | Edited */
-      align-items: center;
-      gap: 1.5rem;
-      background-color: #252525;
-      padding: 1.5rem;
-      border-radius: 12px;
-    }
-
-    .task-arrow {
-      font-size: 2rem;
-      color: var(--primary-color);
-    }
-
-    /* Responsive adjustments for the new multi-task layout */
-    @media screen and (min-width: 769px) {
-      .multi-task-grid {
-        /* On larger screens, create two columns */
-        grid-template-columns: repeat(2, 1fr);
+    /* --- 8. Responsive Design --- */
+    @media (max-width: 992px) {
+      .ablation-item {
+        grid-template-columns: 240px 1fr;
+        gap: 1.5rem;
       }
     }
 
-    @media screen and (max-width: 500px) {
-      .task-pair {
-        grid-template-columns: 1fr;
-        /* Stack on very small screens */
-        text-align: center;
-      }
-
-      .task-arrow {
-        transform: rotate(90deg);
-        /* Point arrow downwards */
-        margin: 0.5rem 0;
-      }
-    }
-
-    /* --- End of New Layout Styles --- */
-
-
-    .footer {
-      background-color: #0a0a0a;
-      border-top: 1px solid var(--border-color);
-    }
-
-    @media screen and (max-width: 1024px) {
-      .comparison-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      }
-    }
-
-    @media screen and (max-width: 768px) {
-      .publication-title {
+    @media (max-width: 768px) {
+      .project-title {
         font-size: 3rem;
       }
 
-      .comparison-grid {
-        grid-template-columns: 1fr;
+      .project-subtitle {
+        font-size: 1.25rem;
       }
 
-      .ablation-item {
+      .section-title {
+        font-size: 2.25rem;
+      }
+
+      .tabs {
+        flex-wrap: wrap;
+      }
+
+      .ablation-item,
+      .direct-comparison-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
-        text-align: center;
       }
 
       .ablation-desc {
         text-align: left;
       }
 
-      .demo-card {
-        padding: 1.5rem;
+      .direct-comparison-arrow {
+        transform: rotate(90deg);
+        margin: 1rem 0;
       }
     }
   </style>
 </head>
 
-<body class="is-dark-mode">
+<body>
 
   <!-- Hero Section -->
-  <section class="hero is-medium">
-    <div class="hero-body" style="padding-bottom: 2rem;">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Melodia</h1>
-            <h2 class="subtitle is-3 publication-subtitle">Training-Free Music Editing Guided by Attention Probing in
-              Diffusion Models</h2>
-            <div class="column has-text-centered" style="margin-top: 2rem;">
-              <div class="publication-links">
-                <span class="link-block">
-                  <a href="YOUR_PAPER_LINK.pdf" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon"><i class="ai ai-arxiv"></i></span>
-                    <span>Paper</span>
-                  </a>
-                </span>
-                <span class="link-block">
-                  <a href="YOUR_GITHUB_REPO_URL" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon"><i class="fab fa-github"></i></span>
-                    <span>Code</span>
-                  </a>
-                </span>
-                <span class="link-block">
-                  <a href="#results" class="button is-normal is-rounded is-primary-custom">
-                    <span class="icon"><i class="fas fa-headphones-alt"></i></span>
-                    <span>Audio Examples</span>
-                  </a>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <header class="hero">
+    <div class="container">
+      <h1 class="project-title">Melodia</h1>
+      <p class="project-subtitle">Training-Free Music Editing Guided by Attention Probing in Diffusion Models</p>
+    </div>
+  </header>
+
+  <!-- Abstract Section -->
+  <section class="section section-separator">
+    <div class="container">
+      <h2 class="section-title">Abstract</h2>
+      <p class="abstract">
+        Existing music editing methods often struggle to alter attributes like timbre, genre, or mood without
+        compromising the original music's temporal structure. To address this, we introduce Melodia, a novel
+        training-free framework that enables precise music editing by manipulating a pre-trained text-to-music diffusion
+        model. Our approach stems from an in-depth probing analysis of the attention layers within AudioLDM 2, which
+        reveals that self-attention maps are crucial for preserving structural integrity (e.g., melody and rhythm),
+        while cross-attention maps encode musical characteristics. Melodia leverages this insight by selectively
+        replacing self-attention key and query matrices from the source audio during the denoising process of the target
+        audio. This technique effectively guides the generation to maintain the original structure while adhering to the
+        new textual prompt, without requiring any descriptive text of the source music. Comprehensive objective and
+        subjective evaluations demonstrate that Melodia significantly outperforms state-of-the-art baselines in
+        balancing textual adherence and structural preservation.
+      </p>
     </div>
   </section>
 
-  <!-- Abstract -->
-  <section class="section" style="padding-top: 2rem;">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3 has-text-centered section-title">Abstract</h2>
-          <div class="content has-text-justified">
-            <p>
-              Existing music editing methods often struggle to alter attributes like timbre, genre, or mood without
-              compromising the original music's temporal structure. To address this, we introduce Melodia, a novel
-              training-free framework that enables precise music editing by manipulating a pre-trained text-to-music
-              diffusion model. Our approach stems from an in-depth probing analysis of the attention layers within
-              AudioLDM 2, which reveals that self-attention maps are crucial for preserving structural integrity (e.g.,
-              melody and rhythm), while cross-attention maps encode musical characteristics. Melodia leverages this
-              insight by selectively replacing self-attention key and query matrices from the source audio during the
-              denoising process of the target audio. This technique effectively guides the generation to maintain the
-              original structure while adhering to the new textual prompt, without requiring any descriptive text of the
-              source music. Comprehensive objective and subjective evaluations demonstrate that Melodia significantly
-              outperforms state-of-the-art baselines in balancing textual adherence and structural preservation.
-            </p>
+  <!-- Storyline A: Main Results -->
+  <main class="section section-separator" id="results">
+    <div class="container">
+      <h2 class="section-title">Main Results</h2>
+      <p class="section-subtitle">Demonstrations of Melodia's core capabilities across various editing tasks, compared
+        with state-of-the-art baselines.</p>
+
+      <!-- Dataset Tab Navigation -->
+      <div class="tabs">
+        <button class="tab-button active" onclick="openTab(event, 'supplementary')">Our Supplementary Dataset</button>
+        <button class="tab-button disabled" title="Coming Soon">Musicdelta (Placeholder)</button>
+        <button class="tab-button disabled" title="Coming Soon">zoME-Bench (Placeholder)</button>
+      </div>
+
+      <!-- Tab Content: Our Supplementary Dataset -->
+      <div id="supplementary" class="tab-content active">
+
+        <!-- Category: Timbre Transfer -->
+        <h3 class="content-group-title">Timbre Transfer</h3>
+
+        <div class="example-card">
+          <h4 class="example-title"><code>Clarinet to Guitar</code><span class="citation">(from Figure 1)</span></h4>
+          <div class="comparison-grid">
+            <div class="source-item audio-item">
+              <h5 class="audio-item-title">Source Audio</h5>
+              <audio controls src="static/audio/wavs_figure1/origin.wav"></audio>
+            </div>
+            <div class="audio-item is-highlight">
+              <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
+              <audio controls src="static/audio/wavs_figure1/clarinet2guitar_ours.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">SDEdit</h5>
+              <audio controls src="static/audio/wavs_figure1/clarinet2guitar_sdedit.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicGen</h5>
+              <audio controls src="static/audio/wavs_figure1/clarinet2guitar_musicgen.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicMagus</h5>
+              <audio controls src="static/audio/wavs_figure1/clarinet2guitar_magus.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDPM-Friendly</h5>
+              <audio controls src="static/audio/wavs_figure1/clarinet2guitar_ddpm.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDIM Inversion</h5>
+              <audio controls src="static/audio/wavs_figure1/clarinet2guitar_ddim.wav"></audio>
+            </div>
           </div>
         </div>
+
+        <div class="example-card">
+          <h4 class="example-title"><code>Flute to Piano</code><span class="citation">(from Figure 7)</span></h4>
+          <div class="comparison-grid">
+            <div class="source-item audio-item">
+              <h5 class="audio-item-title">Source Audio</h5>
+              <audio controls src="static/audio/wavs_figure7/flute_origin.wav"></audio>
+            </div>
+            <div class="audio-item is-highlight">
+              <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
+              <audio controls src="static/audio/wavs_figure7/flute2piano_ours.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">SDEdit</h5>
+              <audio controls src="static/audio/wavs_figure7/flute2piano_sdedit.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicGen</h5>
+              <audio controls src="static/audio/wavs_figure7/flute2piano_musicgen.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicMagus</h5>
+              <audio controls src="static/audio/wavs_figure7/flute2piano_magus.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDPM-Friendly</h5>
+              <audio controls src="static/audio/wavs_figure7/flute2piano_ddpm.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDIM Inversion</h5>
+              <audio controls src="static/audio/wavs_figure7/flute2piano_ddim.wav"></audio>
+            </div>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <h4 class="example-title"><code>Accordion to Trombone</code></h4>
+          <div class="comparison-grid">
+            <div class="source-item audio-item">
+              <h5 class="audio-item-title">Source Audio</h5>
+              <audio controls
+                src="static/audio/additional_baseline_comparison_accordion2trombone/accordion.wav"></audio>
+            </div>
+            <div class="audio-item is-highlight">
+              <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
+              <audio controls
+                src="static/audio/additional_baseline_comparison_accordion2trombone/a_solo_trombone_ours.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">SDEdit</h5>
+              <audio controls
+                src="static/audio/additional_baseline_comparison_accordion2trombone/a_solo_trombone_sdedit.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicGen</h5>
+              <audio controls
+                src="static/audio/additional_baseline_comparison_accordion2trombone/a_solo_trombone_musicgen.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicMagus</h5>
+              <audio controls
+                src="static/audio/additional_baseline_comparison_accordion2trombone/a_solo_trombone_magus.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDPM-Friendly</h5>
+              <audio controls
+                src="static/audio/additional_baseline_comparison_accordion2trombone/a_solo_trombone_ddpm.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDIM Inversion</h5>
+              <audio controls
+                src="static/audio/additional_baseline_comparison_accordion2trombone/a_solo_trombone_ddim.wav"></audio>
+            </div>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <h4 class="example-title"><code>Piano to Accordion</code><span class="citation">(from Figure 5)</span></h4>
+          <div class="direct-comparison-grid">
+            <div class="direct-comparison-item audio-item">
+              <h5 class="audio-item-title">Source: Piano</h5>
+              <audio controls src="static/audio/wavs_figure5/origin_piano.wav"></audio>
+            </div>
+            <div class="direct-comparison-arrow">
+              <i class="fas fa-long-arrow-alt-right"></i>
+            </div>
+            <div class="direct-comparison-item audio-item is-highlight">
+              <h5 class="audio-item-title"><i class="fas fa-star"></i>Edited: Accordion</h5>
+              <audio controls src="static/audio/wavs_figure5/piano2accordion.wav"></audio>
+            </div>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <h4 class="example-title"><code>Electric Guitar to Hi-hat</code><span class="citation">(from Figure 5)</span>
+          </h4>
+          <div class="direct-comparison-grid">
+            <div class="direct-comparison-item audio-item">
+              <h5 class="audio-item-title">Source: Electric Guitar</h5>
+              <audio controls src="static/audio/wavs_figure5/origin_eletric_guitar.wav"></audio>
+            </div>
+            <div class="direct-comparison-arrow">
+              <i class="fas fa-long-arrow-alt-right"></i>
+            </div>
+            <div class="direct-comparison-item audio-item is-highlight">
+              <h5 class="audio-item-title"><i class="fas fa-star"></i>Edited: Hi-hat</h5>
+              <audio controls src="static/audio/wavs_figure5/eletric_guitar2hihat.wav"></audio>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Category: Style Transfer -->
+        <h3 class="content-group-title">Style Transfer</h3>
+
+        <div class="example-card">
+          <h4 class="example-title"><code>Blues to Jazz</code></h4>
+          <div class="comparison-grid">
+            <div class="source-item audio-item">
+              <h5 class="audio-item-title">Source Audio</h5>
+              <audio controls src="static/audio/additional_baseline_comparison_blues2jazz/blues.wav"></audio>
+            </div>
+            <div class="audio-item is-highlight">
+              <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
+              <audio controls
+                src="static/audio/additional_baseline_comparison_blues2jazz/a_typical_jazz_ours.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">SDEdit</h5>
+              <audio controls
+                src="static/audio/additional_baseline_comparison_blues2jazz/a_typical_jazz_sdedit.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicGen</h5>
+              <audio controls
+                src="static/audio/additional_baseline_comparison_blues2jazz/a_typical_jazz_musicgen.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicMagus</h5>
+              <audio controls
+                src="static/audio/additional_baseline_comparison_blues2jazz/a_typical_jazz_magus.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDPM-Friendly</h5>
+              <audio controls
+                src="static/audio/additional_baseline_comparison_blues2jazz/a_typical_jazz_ddpm.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDIM Inversion</h5>
+              <audio controls
+                src="static/audio/additional_baseline_comparison_blues2jazz/a_typical_jazz_ddim.wav"></audio>
+            </div>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <h4 class="example-title"><code>Folk to Reggae</code></h4>
+          <div class="comparison-grid">
+            <div class="source-item audio-item">
+              <h5 class="audio-item-title">Source Audio</h5>
+              <audio controls src="static/audio/additional_baseline_comparison_folk2reggae/folk.wav"></audio>
+            </div>
+            <div class="audio-item is-highlight">
+              <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
+              <audio controls
+                src="static/audio/additional_baseline_comparison_folk2reggae/a_typical_reggae_ours.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">SDEdit</h5>
+              <audio controls
+                src="static/audio/additional_baseline_comparison_folk2reggae/a_typical_reggae_sdedit.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicGen</h5>
+              <audio controls
+                src="static/audio/additional_baseline_comparison_folk2reggae/a_typical_reggae_musicgen.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicMagus</h5>
+              <audio controls
+                src="static/audio/additional_baseline_comparison_folk2reggae/a_typical_reggae_magus.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDPM-Friendly</h5>
+              <audio controls
+                src="static/audio/additional_baseline_comparison_folk2reggae/a_typical_reggae_ddpm.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDIM Inversion</h5>
+              <audio controls
+                src="static/audio/additional_baseline_comparison_folk2reggae/a_typical_reggae_ddim.wav"></audio>
+            </div>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <h4 class="example-title"><code>Metal to Country</code><span class="citation">(from Figure 5)</span></h4>
+          <div class="direct-comparison-grid">
+            <div class="direct-comparison-item audio-item">
+              <h5 class="audio-item-title">Source: Metal</h5>
+              <audio controls src="static/audio/wavs_figure5/origin_metal.wav"></audio>
+            </div>
+            <div class="direct-comparison-arrow">
+              <i class="fas fa-long-arrow-alt-right"></i>
+            </div>
+            <div class="direct-comparison-item audio-item is-highlight">
+              <h5 class="audio-item-title"><i class="fas fa-star"></i>Edited: Country</h5>
+              <audio controls src="static/audio/wavs_figure5/metal2country.wav"></audio>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category: Mood Transfer -->
+        <h3 class="content-group-title">Mood Transfer</h3>
+
+        <div class="example-card">
+          <h4 class="example-title"><code>Tense to Peaceful</code></h4>
+          <div class="comparison-grid">
+            <div class="source-item audio-item">
+              <h5 class="audio-item-title">Source Audio</h5>
+              <audio controls src="static/audio/additional_baseline_comparison_tense2peaceful/tense.wav"></audio>
+            </div>
+            <div class="audio-item is-highlight">
+              <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
+              <audio controls
+                src="static/audio/additional_baseline_comparison_tense2peaceful/a_peaceful_ours.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicGen</h5>
+              <audio controls
+                src="static/audio/additional_baseline_comparison_tense2peaceful/a_peaceful_musicgen.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicMagus</h5>
+              <audio controls
+                src="static/audio/additional_baseline_comparison_tense2peaceful/a_peaceful_magus.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDPM-Friendly</h5>
+              <audio controls
+                src="static/audio/additional_baseline_comparison_tense2peaceful/a_peaceful_ddpm.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDIM Inversion</h5>
+              <audio controls
+                src="static/audio/additional_baseline_comparison_tense2peaceful/a_peaceful_ddim.wav"></audio>
+            </div>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <h4 class="example-title"><code>Sad to Happy</code><span class="citation">(from Figure 5)</span></h4>
+          <div class="direct-comparison-grid">
+            <div class="direct-comparison-item audio-item">
+              <h5 class="audio-item-title">Source: Sad</h5>
+              <audio controls src="static/audio/wavs_figure5/origin_sad.wav"></audio>
+            </div>
+            <div class="direct-comparison-arrow">
+              <i class="fas fa-long-arrow-alt-right"></i>
+            </div>
+            <div class="direct-comparison-item audio-item is-highlight">
+              <h5 class="audio-item-title"><i class="fas fa-star"></i>Edited: Happy</h5>
+              <audio controls src="static/audio/wavs_figure5/sad2happy.wav"></audio>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
-  </section>
+  </main>
 
-  <!-- Results Section -->
-  <section class="section" id="results">
-    <div class="container results-container">
+  <!-- Storyline B: Attention Mechanism Ablation Study -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Attention Mechanism Ablation Study</h2>
+      <p class="section-subtitle">Ablation studies demonstrating the distinct roles of Self-Attention (SA) and
+        Cross-Attention (CA) and justifying the core mechanism of Melodia.</p>
 
-      <!-- =================================================================== -->
-      <!-- == MAIN RESULTS (Corresponding to Paper Figures) ================== -->
-      <!-- =================================================================== -->
-      <h2 class="title is-2 has-text-centered section-title">Main Results</h2>
-
-      <!-- Demo Case: Figure 1 -->
-      <div class="demo-card">
-        <h3 class="demo-card-title">Timbre Transfer: <code>Clarinet to Guitar</code></h3>
-        <div class="comparison-grid">
-          <div class="source-item">
-            <h4 class="item-title">Source Audio</h4>
-            <audio controls src="static/audio/wavs_figure1/origin.wav"></audio>
-          </div>
-          <div class="result-item is-melodia">
-            <h4 class="item-title"><i class="fas fa-star"></i>Melodia (Ours)</h4><audio controls
-              src="static/audio/wavs_figure1/clarinet2guitar_ours.wav"></audio>
-          </div>
-          <div class="result-item">
-            <h4 class="item-title">SDEdit</h4><audio controls
-              src="static/audio/wavs_figure1/clarinet2guitar_sdedit.wav"></audio>
-          </div>
-          <div class="result-item">
-            <h4 class="item-title">MusicGen</h4><audio controls
-              src="static/audio/wavs_figure1/clarinet2guitar_musicgen.wav"></audio>
-          </div>
-          <div class="result-item">
-            <h4 class="item-title">MusicMagus</h4><audio controls
-              src="static/audio/wavs_figure1/clarinet2guitar_magus.wav"></audio>
-          </div>
-          <div class="result-item">
-            <h4 class="item-title">DDPM-Friendly</h4><audio controls
-              src="static/audio/wavs_figure1/clarinet2guitar_ddpm.wav"></audio>
-          </div>
-          <div class="result-item">
-            <h4 class="item-title">DDIM Inversion</h4><audio controls
-              src="static/audio/wavs_figure1/clarinet2guitar_ddim.wav"></audio>
-          </div>
-        </div>
-      </div>
-
-      <!-- Demo Case: Figure 7 -->
-      <div class="demo-card">
-        <h3 class="demo-card-title">Timbre Transfer: <code>Flute to Piano</code></h3>
-        <div class="comparison-grid">
-          <div class="source-item">
-            <h4 class="item-title">Source Audio</h4>
-            <audio controls src="static/audio/wavs_figure7/flute_origin.wav"></audio>
-          </div>
-          <div class="result-item is-melodia">
-            <h4 class="item-title"><i class="fas fa-star"></i>Melodia (Ours)</h4><audio controls
-              src="static/audio/wavs_figure7/flute2piano_ours.wav"></audio>
-          </div>
-          <div class="result-item">
-            <h4 class="item-title">SDEdit</h4><audio controls
-              src="static/audio/wavs_figure7/flute2piano_sdedit.wav"></audio>
-          </div>
-          <div class="result-item">
-            <h4 class="item-title">MusicGen</h4><audio controls
-              src="static/audio/wavs_figure7/flute2piano_musicgen.wav"></audio>
-          </div>
-          <div class="result-item">
-            <h4 class="item-title">MusicMagus</h4><audio controls
-              src="static/audio/wavs_figure7/flute2piano_magus.wav"></audio>
-          </div>
-          <div class="result-item">
-            <h4 class="item-title">DDPM-Friendly</h4><audio controls
-              src="static/audio/wavs_figure7/flute2piano_ddpm.wav"></audio>
-          </div>
-          <div class="result-item">
-            <h4 class="item-title">DDIM Inversion</h4><audio controls
-              src="static/audio/wavs_figure7/flute2piano_ddim.wav"></audio>
-          </div>
-        </div>
-      </div>
-
-      <!-- Demo Case: Figure 5 (Multi-Task Showcase) -->
-      <div class="demo-card">
-        <h3 class="demo-card-title">Multi-Task Editing Showcase</h3>
-        <!-- New Optimized Layout for Multi-Task -->
-        <div class="multi-task-grid">
-          <div class="task-pair">
-            <div class="result-item">
-              <h4 class="item-title">Source: Sad</h4><audio controls
-                src="static/audio/wavs_figure5/origin_sad.wav"></audio>
-            </div>
-            <div class="task-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
-            <div class="result-item is-melodia">
-              <h4 class="item-title">Edited: Happy</h4><audio controls
-                src="static/audio/wavs_figure5/sad2happy.wav"></audio>
-            </div>
-          </div>
-          <div class="task-pair">
-            <div class="result-item">
-              <h4 class="item-title">Source: Piano</h4><audio controls
-                src="static/audio/wavs_figure5/origin_piano.wav"></audio>
-            </div>
-            <div class="task-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
-            <div class="result-item is-melodia">
-              <h4 class="item-title">Edited: Accordion</h4><audio controls
-                src="static/audio/wavs_figure5/piano2accordion.wav"></audio>
-            </div>
-          </div>
-          <div class="task-pair">
-            <div class="result-item">
-              <h4 class="item-title">Source: Metal</h4><audio controls
-                src="static/audio/wavs_figure5/origin_metal.wav"></audio>
-            </div>
-            <div class="task-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
-            <div class="result-item is-melodia">
-              <h4 class="item-title">Edited: Country</h4><audio controls
-                src="static/audio/wavs_figure5/metal2country.wav"></audio>
-            </div>
-          </div>
-          <div class="task-pair">
-            <div class="result-item">
-              <h4 class="item-title">Source: Electric Guitar</h4><audio controls
-                src="static/audio/wavs_figure5/origin_eletric_guitar.wav"></audio>
-            </div>
-            <div class="task-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
-            <div class="result-item is-melodia">
-              <h4 class="item-title">Edited: Hi-hat</h4><audio controls
-                src="static/audio/wavs_figure5/eletric_guitar2hihat.wav"></audio>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <!-- =================================================================== -->
-      <!-- == ATTENTION MECHANISM ABLATION STUDY ============================= -->
-      <!-- =================================================================== -->
-      <h2 class="title is-2 has-text-centered section-title">Attention Mechanism Ablation Study</h2>
-
-      <!-- Demo Case: Figure 2 (Drum to Violin) -->
-      <div class="demo-card">
-        <h3 class="demo-card-title">Ablation on Timbre Transfer: <code>Drum to Violin</code></h3>
+      <div class="example-card">
+        <h4 class="example-title">Ablation 1: <code>Drum to Violin</code><span class="citation">(from Figure 2)</span>
+        </h4>
         <div class="ablation-grid">
           <div class="ablation-item">
-            <div class="ablation-audio"><audio controls
-                src="static/audio/wavs_figure2_drum2violin/direct_generation.wav"></audio></div>
             <div class="ablation-desc">
-              <h5>Direct Generation</h5>
-              <p>Generated from the target prompt "a solo violin" only, without any source audio influence. This serves
-                as the target timbre/style reference.</p>
+              <h5>Source Audio</h5>
+              <p>The original audio with a distinct rhythmic structure.</p>
+            </div>
+            <div class="ablation-audio"><audio controls src="static/audio/wavs_figure2_drum2violin/origin.wav"></audio>
             </div>
           </div>
-          <div class="ablation-item">
-            <div class="ablation-audio"><audio controls
-                src="static/audio/wavs_figure2_drum2violin/no_replacement.wav"></audio></div>
+          <div class="ablation-item is-highlight">
             <div class="ablation-desc">
-              <h5>DDIM Inversion (No Replacement)</h5>
-              <p>The source audio is inverted and then denoised with the target prompt, but without applying our
-                attention replacement. Structure is poorly preserved.</p>
+              <h5><i class="fas fa-star"></i>SA Replacement (Layers 8-14)</h5>
+              <p>Preserves the source's temporal structure (rhythm) while changing the instrument to violin.</p>
             </div>
-          </div>
-          <div class="ablation-item">
             <div class="ablation-audio"><audio controls src="static/audio/wavs_figure2_drum2violin/sa_8-14.wav"></audio>
             </div>
-            <div class="ablation-desc">
-              <h5>SA Replacement (Layers 8-14)</h5>
-              <p>Only Self-Attention from layers 8-14 is replaced. This preserves the core temporal structure while
-                allowing timbre to change.</p>
-            </div>
           </div>
           <div class="ablation-item">
-            <div class="ablation-audio"><audio controls src="static/audio/wavs_figure2_drum2violin/sa_full.wav"></audio>
-            </div>
             <div class="ablation-desc">
               <h5>SA Replacement (All Layers)</h5>
-              <p>Self-Attention from all layers is replaced. Structure is strongly preserved, but some source timbre may
-                leak into the result.</p>
+              <p>Strongly preserves structure, but some of the original drum timbre leaks through.</p>
+            </div>
+            <div class="ablation-audio"><audio controls src="static/audio/wavs_figure2_drum2violin/sa_full.wav"></audio>
             </div>
           </div>
-          <div class="ablation-item">
+          <div class="ablation-item is-highlight">
+            <div class="ablation-desc">
+              <h5><i class="fas fa-star"></i>CA Replacement (Layers 8-14)</h5>
+              <p>Ignores the source structure, generating a new violin melody based on the text prompt.</p>
+            </div>
             <div class="ablation-audio"><audio controls src="static/audio/wavs_figure2_drum2violin/ca_8-14.wav"></audio>
             </div>
+          </div>
+          <div class="ablation-item">
             <div class="ablation-desc">
-              <h5>CA Replacement (Layers 8-14)</h5>
-              <p>Only Cross-Attention from layers 8-14 is replaced. The result largely ignores the source structure and
-                resembles direct generation.</p>
+              <h5>CA Replacement (All Layers)</h5>
+              <p>Completely disregards the source structure, confirming CA's role in encoding text concepts.</p>
+            </div>
+            <div class="ablation-audio"><audio controls src="static/audio/wavs_figure2_drum2violin/ca_full.wav"></audio>
             </div>
           </div>
           <div class="ablation-item">
-            <div class="ablation-audio"><audio controls src="static/audio/wavs_figure2_drum2violin/ca_full.wav"></audio>
-            </div>
             <div class="ablation-desc">
-              <h5>CA Replacement (All Layers)</h5>
-              <p>Cross-Attention from all layers is replaced. The output completely disregards the source structure,
-                confirming CA's role in encoding textual concepts.</p>
+              <h5>Direct Generation</h5>
+              <p>The target reference, generated from the prompt "a solo violin" with no source influence.</p>
             </div>
+            <div class="ablation-audio"><audio controls
+                src="static/audio/wavs_figure2_drum2violin/direct_generation.wav"></audio></div>
+          </div>
+          <div class="ablation-item">
+            <div class="ablation-desc">
+              <h5>DDIM Inversion (No Replacement)</h5>
+              <p>A baseline without attention control; fails to preserve the original rhythmic structure.</p>
+            </div>
+            <div class="ablation-audio"><audio controls
+                src="static/audio/wavs_figure2_drum2violin/no_replacement.wav"></audio></div>
           </div>
         </div>
       </div>
 
-      <!-- Demo Case: additional_results_for_sa_ca_comparison -->
-      <div class="demo-card">
-        <h3 class="demo-card-title">Ablation on Timbre Transfer: <code>Clarinet to Trombone</code></h3>
+      <div class="example-card">
+        <h4 class="example-title">Ablation 2: <code>Blues to Classical</code><span class="citation">(from Figure
+            2)</span></h4>
         <div class="ablation-grid">
           <div class="ablation-item">
-            <div class="ablation-audio">
-              <h4 class="item-title">Source Audio</h4><audio controls
-                src="static/audio/additional_results_for_sa_ca_comparison/origin.wav"></audio>
-            </div>
             <div class="ablation-desc">
-              <h5>Original Clarinet</h5>
-              <p>The source audio used for the editing task.</p>
+              <h5>Source Audio</h5>
+              <p>The original audio in a 'Blues' style.</p>
             </div>
+            <div class="ablation-audio"><audio controls
+                src="static/audio/wavs_figure2_blues2classical/origin.wav"></audio></div>
+          </div>
+          <div class="ablation-item is-highlight">
+            <div class="ablation-desc">
+              <h5><i class="fas fa-star"></i>SA Replacement (Layers 8-14)</h5>
+              <p>Effectively preserves the melodic contour of the blues track while shifting the style to classical.</p>
+            </div>
+            <div class="ablation-audio"><audio controls
+                src="static/audio/wavs_figure2_blues2classical/sa_8-14.wav"></audio></div>
           </div>
           <div class="ablation-item">
+            <div class="ablation-desc">
+              <h5>SA Replacement (All Layers)</h5>
+              <p>Over-preserves the source, with elements of the original blues style remaining.</p>
+            </div>
             <div class="ablation-audio"><audio controls
-                src="static/audio/additional_results_for_sa_ca_comparison/direct_generation.wav"></audio></div>
+                src="static/audio/wavs_figure2_blues2classical/sa_full.wav"></audio></div>
+          </div>
+          <div class="ablation-item is-highlight">
+            <div class="ablation-desc">
+              <h5><i class="fas fa-star"></i>CA Replacement (Layers 8-14)</h5>
+              <p>Largely ignores the source melody, generating a new piece in the 'Classical' style.</p>
+            </div>
+            <div class="ablation-audio"><audio controls
+                src="static/audio/wavs_figure2_blues2classical/ca_8-14.wav"></audio></div>
+          </div>
+          <div class="ablation-item">
+            <div class="ablation-desc">
+              <h5>CA Replacement (All Layers)</h5>
+              <p>The output has no structural resemblance to the source, behaving like direct generation.</p>
+            </div>
+            <div class="ablation-audio"><audio controls
+                src="static/audio/wavs_figure2_blues2classical/ca_full.wav"></audio></div>
+          </div>
+          <div class="ablation-item">
             <div class="ablation-desc">
               <h5>Direct Generation</h5>
-              <p>Generated from the target prompt "a solo trombone" only. This is the target timbre reference.</p>
+              <p>The target reference, generated from the prompt "a typical classical music".</p>
             </div>
+            <div class="ablation-audio"><audio controls
+                src="static/audio/wavs_figure2_blues2classical/direct_generation.wav"></audio></div>
           </div>
           <div class="ablation-item">
+            <div class="ablation-desc">
+              <h5>DDIM Inversion (No Replacement)</h5>
+              <p>The baseline fails to maintain the melodic structure during the style transfer.</p>
+            </div>
+            <div class="ablation-audio"><audio controls
+                src="static/audio/wavs_figure2_blues2classical/no_replacement.wav"></audio></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <h4 class="example-title">Ablation 3: <code>Clarinet to Trombone</code></h4>
+        <div class="ablation-grid">
+          <div class="ablation-item">
+            <div class="ablation-desc">
+              <h5>Source Audio</h5>
+              <p>The original clarinet recording.</p>
+            </div>
+            <div class="ablation-audio"><audio controls
+                src="static/audio/additional_results_for_sa_ca_comparison/origin.wav"></audio></div>
+          </div>
+          <div class="ablation-item is-highlight">
+            <div class="ablation-desc">
+              <h5><i class="fas fa-star"></i>SA Replacement (Layers 8-14)</h5>
+              <p>The optimal result: structure is preserved, and timbre is successfully changed to trombone.</p>
+            </div>
+            <div class="ablation-audio"><audio controls
+                src="static/audio/additional_results_for_sa_ca_comparison/a solo trombone sa8-14.wav"></audio></div>
+          </div>
+          <div class="ablation-item">
+            <div class="ablation-desc">
+              <h5>SA Replacement (All Layers)</h5>
+              <p>Structure is preserved, but the sound is a mix of clarinet and trombone.</p>
+            </div>
+            <div class="ablation-audio"><audio controls
+                src="static/audio/additional_results_for_sa_ca_comparison/a solo trombone sa_full.wav"></audio></div>
+          </div>
+          <div class="ablation-item is-highlight">
+            <div class="ablation-desc">
+              <h5><i class="fas fa-star"></i>CA Replacement (Layers 8-14)</h5>
+              <p>The edit fails to keep the source melody, creating a new trombone piece.</p>
+            </div>
+            <div class="ablation-audio"><audio controls
+                src="static/audio/additional_results_for_sa_ca_comparison/a solo trombone ca8-14.wav"></audio></div>
+          </div>
+          <div class="ablation-item">
+            <div class="ablation-desc">
+              <h5>CA Replacement (All Layers)</h5>
+              <p>The result is entirely untethered from the source audio's structure.</p>
+            </div>
+            <div class="ablation-audio"><audio controls
+                src="static/audio/additional_results_for_sa_ca_comparison/a solo trombone ca_full.wav"></audio></div>
+          </div>
+          <div class="ablation-item">
+            <div class="ablation-desc">
+              <h5>Direct Generation</h5>
+              <p>Target reference for "a solo trombone".</p>
+            </div>
+            <div class="ablation-audio"><audio controls
+                src="static/audio/additional_results_for_sa_ca_comparison/direct_generation.wav"></audio></div>
+          </div>
+          <div class="ablation-item">
+            <div class="ablation-desc">
+              <h5>DDIM Inversion (No Replacement)</h5>
+              <p>The baseline method fails to transfer timbre while preserving the melody.</p>
+            </div>
             <div class="ablation-audio"><audio controls
                 src="static/audio/additional_results_for_sa_ca_comparison/a solo trombone no_placement.wav"></audio>
             </div>
-            <div class="ablation-desc">
-              <h5>DDIM Inversion (No Replacement)</h5>
-              <p>Standard inversion and denoising without attention manipulation. Fails to preserve the source's melodic
-                structure.</p>
-            </div>
-          </div>
-          <div class="ablation-item">
-            <div class="ablation-audio"><audio controls
-                src="static/audio/additional_results_for_sa_ca_comparison/a solo trombone sa_full.wav"></audio></div>
-            <div class="ablation-desc">
-              <h5>SA Replacement (Melodia)</h5>
-              <p>Our proposed method. Replaces self-attention to preserve structure while changing timbre. This is the
-                optimal result.</p>
-            </div>
           </div>
         </div>
       </div>
-
-
-      <!-- =================================================================== -->
-      <!-- == SUPPLEMENTARY EXAMPLES ========================================= -->
-      <!-- =================================================================== -->
-      <h2 class="title is-2 has-text-centered section-title">Supplementary Examples</h2>
-
-      <!-- Demo Case: Accordion to Trombone -->
-      <div class="demo-card">
-        <h3 class="demo-card-title">Timbre Transfer: <code>Accordion to Trombone</code></h3>
-        <div class="comparison-grid">
-          <div class="source-item">
-            <h4 class="item-title">Source Audio</h4><audio controls
-              src="static/audio/additional_baseline_comparison_accordion2trombone/accordion.wav"></audio>
-          </div>
-          <div class="result-item is-melodia">
-            <h4 class="item-title"><i class="fas fa-star"></i>Melodia (Ours)</h4><audio controls
-              src="static/audio/additional_baseline_comparison_accordion2trombone/a_solo_trombone_ours.wav"></audio>
-          </div>
-          <div class="result-item">
-            <h4 class="item-title">SDEdit</h4><audio controls
-              src="static/audio/additional_baseline_comparison_accordion2trombone/a_solo_trombone_sdedit.wav"></audio>
-          </div>
-          <div class="result-item">
-            <h4 class="item-title">MusicGen</h4><audio controls
-              src="static/audio/additional_baseline_comparison_accordion2trombone/a_solo_trombone_musicgen.wav"></audio>
-          </div>
-          <div class="result-item">
-            <h4 class="item-title">MusicMagus</h4><audio controls
-              src="static/audio/additional_baseline_comparison_accordion2trombone/a_solo_trombone_magus.wav"></audio>
-          </div>
-          <div class="result-item">
-            <h4 class="item-title">DDPM-Friendly</h4><audio controls
-              src="static/audio/additional_baseline_comparison_accordion2trombone/a_solo_trombone_ddpm.wav"></audio>
-          </div>
-          <div class="result-item">
-            <h4 class="item-title">DDIM Inversion</h4><audio controls
-              src="static/audio/additional_baseline_comparison_accordion2trombone/a_solo_trombone_ddim.wav"></audio>
-          </div>
-        </div>
-      </div>
-
-      <!-- Demo Case: Blues to Jazz -->
-      <div class="demo-card">
-        <h3 class="demo-card-title">Style Transfer: <code>Blues to Jazz</code></h3>
-        <div class="comparison-grid">
-          <div class="source-item">
-            <h4 class="item-title">Source Audio</h4><audio controls
-              src="static/audio/additional_baseline_comparison_blues2jazz/blues.wav"></audio>
-          </div>
-          <div class="result-item is-melodia">
-            <h4 class="item-title"><i class="fas fa-star"></i>Melodia (Ours)</h4><audio controls
-              src="static/audio/additional_baseline_comparison_blues2jazz/a_typical_jazz_ours.wav"></audio>
-          </div>
-          <div class="result-item">
-            <h4 class="item-title">SDEdit</h4><audio controls
-              src="static/audio/additional_baseline_comparison_blues2jazz/a_typical_jazz_sdedit.wav"></audio>
-          </div>
-          <div class="result-item">
-            <h4 class="item-title">MusicGen</h4><audio controls
-              src="static/audio/additional_baseline_comparison_blues2jazz/a_typical_jazz_musicgen.wav"></audio>
-          </div>
-          <div class="result-item">
-            <h4 class="item-title">MusicMagus</h4><audio controls
-              src="static/audio/additional_baseline_comparison_blues2jazz/a_typical_jazz_magus.wav"></audio>
-          </div>
-          <div class="result-item">
-            <h4 class="item-title">DDPM-Friendly</h4><audio controls
-              src="static/audio/additional_baseline_comparison_blues2jazz/a_typical_jazz_ddpm.wav"></audio>
-          </div>
-          <div class="result-item">
-            <h4 class="item-title">DDIM Inversion</h4><audio controls
-              src="static/audio/additional_baseline_comparison_blues2jazz/a_typical_jazz_ddim.wav"></audio>
-          </div>
-        </div>
-      </div>
-
-      <!-- Demo Case: Tense to Peaceful -->
-      <div class="demo-card">
-        <h3 class="demo-card-title">Mood Transfer: <code>Tense to Peaceful</code></h3>
-        <div class="comparison-grid">
-          <div class="source-item">
-            <h4 class="item-title">Source Audio</h4><audio controls
-              src="static/audio/additional_baseline_comparison_tense2peaceful/tense.wav"></audio>
-          </div>
-          <div class="result-item is-melodia">
-            <h4 class="item-title"><i class="fas fa-star"></i>Melodia (Ours)</h4><audio controls
-              src="static/audio/additional_baseline_comparison_tense2peaceful/a_peaceful_ours.wav"></audio>
-          </div>
-          <div class="result-item">
-            <h4 class="item-title">MusicGen</h4><audio controls
-              src="static/audio/additional_baseline_comparison_tense2peaceful/a_peaceful_musicgen.wav"></audio>
-          </div>
-          <div class="result-item">
-            <h4 class="item-title">MusicMagus</h4><audio controls
-              src="static/audio/additional_baseline_comparison_tense2peaceful/a_peaceful_magus.wav"></audio>
-          </div>
-          <div class="result-item">
-            <h4 class="item-title">DDPM-Friendly</h4><audio controls
-              src="static/audio/additional_baseline_comparison_tense2peaceful/a_peaceful_ddpm.wav"></audio>
-          </div>
-          <div class="result-item">
-            <h4 class="item-title">DDIM Inversion</h4><audio controls
-              src="static/audio/additional_baseline_comparison_tense2peaceful/a_peaceful_ddim.wav"></audio>
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="columns is-centered">
-        <div class="column is-8">
-          <div class="content has-text-centered">
-            <p>
-              This page template was adapted from the <a
-                href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project
-                Page Template</a>.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <script>
+    // JavaScript for Tab functionality
+    function openTab(evt, tabName) {
+      let i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tab-content");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tab-button");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+  </script>
 
 </body>
 
