@@ -1,0 +1,5 @@
+{
+    "Original Prompt": "a pop song with a romantic theme featuring female vocals piano simple percussion and strings",
+    "Edited Prompt": "a soul song with a romantic theme featuring female vocals piano simple percussion and strings",
+    "Blended Word": "soul"
+}

@@ -1,0 +1,5 @@
+{
+    "Original Prompt": "a live performance featuring a loud distorted tuba solo",
+    "Edited Prompt": "a live performance featuring a soft distorted tuba solo",
+    "Blended Word": "soft tuba"
+}

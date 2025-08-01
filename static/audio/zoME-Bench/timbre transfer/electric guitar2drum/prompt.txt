@@ -1,0 +1,5 @@
+{
+    "Original Prompt": "a recording of a rock cover with electric guitar solo and punchy percussion",
+    "Edited Prompt": "a recording of a rock cover with drums solo and punchy percussion",
+    "Blended Word": "drums"
+}

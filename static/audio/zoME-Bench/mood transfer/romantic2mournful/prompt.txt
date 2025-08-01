@@ -1,0 +1,5 @@
+{
+    "Original Prompt": "a thai romantic ballad with male vocals featuring acoustic guitar piano flute and drums",
+    "Edited Prompt": "a thai mournful ballad with male vocals featuring acoustic guitar piano flute and drums",
+    "Blended Word": "mournful ballad"
+}

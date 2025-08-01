@@ -1,0 +1,5 @@
+{
+    "Original Prompt": "a recording of rock and roll with electric guitar bass guitar acoustic drums and male vocals",
+    "Edited Prompt": "a recording of blue and roll with electric guitar bass guitar acoustic drums and male vocals",
+    "Blended Word": "blue"
+}

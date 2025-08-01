@@ -1,0 +1,5 @@
+{
+    "Original Prompt": "a live jazz performance with passionate female vocals and groovy piano chords",
+    "Edited Prompt": "a live blues performance with passionate female vocals and groovy piano chords",
+    "Blended Word": "blues"
+}
