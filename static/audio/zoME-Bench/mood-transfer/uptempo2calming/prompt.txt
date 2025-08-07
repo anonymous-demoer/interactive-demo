@@ -1,5 +1,0 @@
-{
-    "Original Prompt": "an uptempo soothing folk melody featuring acoustic guitar and flute",
-    "Edited Prompt": "a calming soothing folk melody featuring acoustic guitar and flute",
-    "Blended Word": "calming folk melody"
-}

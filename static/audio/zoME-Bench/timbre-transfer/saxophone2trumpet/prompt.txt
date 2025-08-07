@@ -1,5 +1,0 @@
-{
-    "Original Prompt": "uplifting ska music with saxophone and electronic guitar",
-    "Edited Prompt": "uplifting ska music with trumpet and electronic guitar",
-    "Blended Word": "trumpet"
-}
