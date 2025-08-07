@@ -16,10 +16,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 
-  <!-- Embedded CSS: Polished Academic Theme v6 -->
+  <!-- Embedded CSS: Polished Academic Theme v7 -->
   <style>
     /* =================================================================== */
-    /* == Melodia Demo - "Polished Academic" Theme v6 ================== */
+    /* == Melodia Demo - "Polished Academic" Theme v7 ================== */
     /* =================================================================== */
 
     /* --- 1. Global Variables & Base Setup --- */
@@ -623,29 +623,6 @@
 
       <!-- Tab Content: Musicdelta -->
       <div id="musicdelta" class="tab-content">
-        <h3 class="content-group-title">Style Transfer</h3>
-        <div class="example-card">
-          <h4 class="example-title"><code>Jazz to Arabic</code><span class="citation">(From Figure 1)</span></h4>
-          <div class="comparison-grid">
-            <div class="source-item audio-item">
-              <h5 class="audio-item-title">Source Audio</h5>
-              <audio controls src="static/audio/musicdelta/Jazz_2_Arabic_(From_Figure_1)/1_origin.wav"></audio>
-            </div>
-            <div class="audio-item is-highlight-red">
-              <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
-              <audio controls src="static/audio/musicdelta/Jazz_2_Arabic_(From_Figure_1)/2_Melodia_ours.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">DDPM-Friendly</h5>
-              <audio controls src="static/audio/musicdelta/Jazz_2_Arabic_(From_Figure_1)/ddpm.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">MusicGen</h5>
-              <audio controls src="static/audio/musicdelta/Jazz_2_Arabic_(From_Figure_1)/musicgen.wav"></audio>
-            </div>
-          </div>
-        </div>
-
         <h3 class="content-group-title">Timbre Transfer</h3>
         <div class="example-card">
           <h4 class="example-title"><code>Trumpet to Organ</code></h4>
@@ -680,45 +657,32 @@
             </div>
           </div>
         </div>
+        <h3 class="content-group-title">Style Transfer</h3>
+        <div class="example-card">
+          <h4 class="example-title"><code>Jazz to Arabic</code><span class="citation">(From Figure 1)</span></h4>
+          <div class="comparison-grid">
+            <div class="source-item audio-item">
+              <h5 class="audio-item-title">Source Audio</h5>
+              <audio controls src="static/audio/musicdelta/Jazz_2_Arabic_(From_Figure_1)/1_origin.wav"></audio>
+            </div>
+            <div class="audio-item is-highlight-red">
+              <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
+              <audio controls src="static/audio/musicdelta/Jazz_2_Arabic_(From_Figure_1)/2_Melodia_ours.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDPM-Friendly</h5>
+              <audio controls src="static/audio/musicdelta/Jazz_2_Arabic_(From_Figure_1)/ddpm.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicGen</h5>
+              <audio controls src="static/audio/musicdelta/Jazz_2_Arabic_(From_Figure_1)/musicgen.wav"></audio>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Tab Content: zoME-Bench -->
       <div id="zome" class="tab-content">
-        <h3 class="content-group-title">Style Transfer</h3>
-        <div class="example-card">
-          <h4 class="example-title"><code>Blues to Jazz</code></h4>
-          <div class="comparison-grid">
-            <div class="source-item audio-item">
-              <h5 class="audio-item-title">Source Audio</h5>
-              <audio controls src="static/audio/zome/Blues_2_Jazz/1_origin.wav"></audio>
-            </div>
-            <div class="audio-item is-highlight-red">
-              <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
-              <audio controls src="static/audio/zome/Blues_2_Jazz/2_Melodia_ours.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">SDEdit</h5>
-              <audio controls src="static/audio/zome/Blues_2_Jazz/sdedit.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">MusicGen</h5>
-              <audio controls src="static/audio/zome/Blues_2_Jazz/musicgen.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">MusicMagus</h5>
-              <audio controls src="static/audio/zome/Blues_2_Jazz/musicmagus.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">DDPM-Friendly</h5>
-              <audio controls src="static/audio/zome/Blues_2_Jazz/ddpm.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">DDIM Inversion</h5>
-              <audio controls src="static/audio/zome/Blues_2_Jazz/ddim.wav"></audio>
-            </div>
-          </div>
-        </div>
-
         <h3 class="content-group-title">Timbre Transfer</h3>
         <div class="example-card">
           <h4 class="example-title"><code>Violin to Drum</code></h4>
@@ -750,6 +714,40 @@
             <div class="audio-item">
               <h5 class="audio-item-title">DDIM Inversion</h5>
               <audio controls src="static/audio/zome/Violin_2_Drum/ddim.wav"></audio>
+            </div>
+          </div>
+        </div>
+        <h3 class="content-group-title">Style Transfer</h3>
+        <div class="example-card">
+          <h4 class="example-title"><code>Blues to Jazz</code></h4>
+          <div class="comparison-grid">
+            <div class="source-item audio-item">
+              <h5 class="audio-item-title">Source Audio</h5>
+              <audio controls src="static/audio/zome/Blues_2_Jazz/1_origin.wav"></audio>
+            </div>
+            <div class="audio-item is-highlight-red">
+              <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
+              <audio controls src="static/audio/zome/Blues_2_Jazz/2_Melodia_ours.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">SDEdit</h5>
+              <audio controls src="static/audio/zome/Blues_2_Jazz/sdedit.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicGen</h5>
+              <audio controls src="static/audio/zome/Blues_2_Jazz/musicgen.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicMagus</h5>
+              <audio controls src="static/audio/zome/Blues_2_Jazz/musicmagus.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDPM-Friendly</h5>
+              <audio controls src="static/audio/zome/Blues_2_Jazz/ddpm.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDIM Inversion</h5>
+              <audio controls src="static/audio/zome/Blues_2_Jazz/ddim.wav"></audio>
             </div>
           </div>
         </div>
