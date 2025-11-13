@@ -82,6 +82,19 @@
       padding: 4rem 0 3rem 0;
     }
 
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--text-primary);
+      margin-bottom: 32px;
+    }
+
     .project-title {
       font-size: 4.5rem;
       font-weight: 800;
@@ -389,6 +402,56 @@
         margin: 1rem 0;
       }
     }
+
+    .resource-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin: 24px 0;
+    }
+
+    .resource-links a {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 24px;
+      border: 2px solid var(--accent-blue);
+      border-radius: 30px;
+      color: var(--accent-blue);
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s, color 0.3s, transform 0.3s;
+      background-color: transparent;
+    }
+
+    .resource-links a:hover {
+      background-color: var(--accent-blue);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .resource-links i {
+      margin-right: 8px;
+    }
+
+    .hero-figure {
+      text-align: center;
+      margin: 32px 0 24px;
+    }
+
+    .hero-figure img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .hero-figure figcaption {
+      margin-top: 30px;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #101010;
+    }
   </style>
 </head>
 
@@ -397,13 +460,22 @@
   <!-- Hero Section -->
   <header class="hero">
     <div class="container">
-      <h1 class="project-title">Melodia</h1>
-      <p class="project-subtitle">Training-Free Music Editing Guided by Attention Probing in Diffusion Models</p>
+      <h1>Melodia: Training-Free Music Editing Guided by Attention Probing in Diffusion Models</h1>
+      <p>AAAI 2026</p>
+      <div class="resource-links">
+        <a href="https://arxiv.org/abs/2511.08252" target="_blank" rel="noopener"><i class="fas fa-scroll"></i>arXiv</a>
+        <a href="https://arxiv.org/pdf/2511.08252" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i>Paper</a>
+        <a href="#" target="_blank" rel="noopener"><i class="fas fa-database"></i>Datasets</a>
+      </div>
+      <figure class="hero-figure">
+        <img src="static/images/Overview_of_Melodia.png" alt="Overview of Melodia and ASR">
+        <figcaption>Figure 3: (Left) Overview of Melodia. (Right) Detailed explanation of Attention-based Structure Retention (ASR).</figcaption>
+      </figure>
     </div>
   </header>
 
   <!-- Abstract Section -->
-  <section class="section section-separator" style="padding-top: 2rem; padding-bottom: 4.5rem;">
+  <section class="section section-separator" style="padding-top: 0; padding-bottom: 4.5rem;">
     <div class="container">
       <h2 class="section-title">Abstract</h2>
       <p class="abstract">
@@ -430,50 +502,45 @@
   <!-- Storyline A: Main Results -->
   <main class="section section-separator" id="results">
     <div class="container">
-      <h2 class="section-title">Main Results</h2>
-      <p class="section-subtitle">Demonstrations of Melodia's core capabilities across various editing tasks, compared
-        with state-of-the-art baselines.</p>
-
-      <!-- Dataset Tab Navigation -->
+      <h2 class="section-title">Comparisons with Baselines</h2>
       <div class="tabs">
-        <button class="tab-button active" onclick="openTab(event, 'supplementary')">Our Supplementary Dataset</button>
-        <button class="tab-button" onclick="openTab(event, 'musicdelta')">Musicdelta</button>
-        <button class="tab-button" onclick="openTab(event, 'zome')">zoME-Bench</button>
+        <button class="tab-button active" onclick="openTab(event, 'timbre')">Timbre Transfer</button>
+        <button class="tab-button" onclick="openTab(event, 'style')">Style Transfer</button>
+        <button class="tab-button" onclick="openTab(event, 'mood')">Mood Transfer</button>
       </div>
 
-      <!-- Tab Content: Our Supplementary Dataset -->
-      <div id="supplementary" class="tab-content active">
-
+      <!-- Tab Content: Timbre Transfer -->
+      <div id="timbre" class="tab-content active">
         <div class="example-card">
           <h4 class="example-title"><code>Accordion to Trombone</code></h4>
           <div class="comparison-grid">
             <div class="source-item audio-item">
               <h5 class="audio-item-title">Source Audio</h5>
-              <audio controls src="static/audio/ours/Accordion_2_Trombone/origin.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Accordion_2_Trombone_ours/origin.wav"></audio>
             </div>
             <div class="audio-item is-highlight-red">
               <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
-              <audio controls src="static/audio/ours/Accordion_2_Trombone/ours.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Accordion_2_Trombone_ours/ours.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">SDEdit</h5>
-              <audio controls src="static/audio/ours/Accordion_2_Trombone/sdedit.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Accordion_2_Trombone_ours/sdedit.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">MusicGen</h5>
-              <audio controls src="static/audio/ours/Accordion_2_Trombone/musicgen.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Accordion_2_Trombone_ours/musicgen.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">MusicMagus</h5>
-              <audio controls src="static/audio/ours/Accordion_2_Trombone/magus.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Accordion_2_Trombone_ours/magus.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">DDPM-Friendly</h5>
-              <audio controls src="static/audio/ours/Accordion_2_Trombone/ddpm.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Accordion_2_Trombone_ours/ddpm.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">DDIM Inversion</h5>
-              <audio controls src="static/audio/ours/Accordion_2_Trombone/ddim.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Accordion_2_Trombone_ours/ddim.wav"></audio>
             </div>
           </div>
         </div>
@@ -482,31 +549,31 @@
           <div class="comparison-grid">
             <div class="source-item audio-item">
               <h5 class="audio-item-title">Source Audio</h5>
-              <audio controls src="static/audio/ours/Flute_2_Piano_(From_Figure_6)/origin.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Flute_2_Piano_(From_Figure_6)_ours/origin.wav"></audio>
             </div>
             <div class="audio-item is-highlight-red">
               <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
-              <audio controls src="static/audio/ours/Flute_2_Piano_(From_Figure_6)/ours.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Flute_2_Piano_(From_Figure_6)_ours/ours.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">SDEdit</h5>
-              <audio controls src="static/audio/ours/Flute_2_Piano_(From_Figure_6)/sdedit.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Flute_2_Piano_(From_Figure_6)_ours/sdedit.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">MusicGen</h5>
-              <audio controls src="static/audio/ours/Flute_2_Piano_(From_Figure_6)/musicgen.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Flute_2_Piano_(From_Figure_6)_ours/musicgen.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">MusicMagus</h5>
-              <audio controls src="static/audio/ours/Flute_2_Piano_(From_Figure_6)/magus.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Flute_2_Piano_(From_Figure_6)_ours/magus.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">DDPM-Friendly</h5>
-              <audio controls src="static/audio/ours/Flute_2_Piano_(From_Figure_6)/ddpm.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Flute_2_Piano_(From_Figure_6)_ours/ddpm.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">DDIM Inversion</h5>
-              <audio controls src="static/audio/ours/Flute_2_Piano_(From_Figure_6)/ddim.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Flute_2_Piano_(From_Figure_6)_ours/ddim.wav"></audio>
             </div>
           </div>
         </div>
@@ -515,233 +582,64 @@
           <div class="comparison-grid">
             <div class="source-item audio-item">
               <h5 class="audio-item-title">Source Audio</h5>
-              <audio controls src="static/audio/ours/Trumpet_2_Organ/origin.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Trumpet_2_Organ_ours/origin.wav"></audio>
             </div>
             <div class="audio-item is-highlight-red">
               <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
-              <audio controls src="static/audio/ours/Trumpet_2_Organ/ours.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Trumpet_2_Organ_ours/ours.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">SDEdit</h5>
-              <audio controls src="static/audio/ours/Trumpet_2_Organ/sdedit.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Trumpet_2_Organ_ours/sdedit.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">MusicGen</h5>
-              <audio controls src="static/audio/ours/Trumpet_2_Organ/musicgen.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Trumpet_2_Organ_ours/musicgen.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">MusicMagus</h5>
-              <audio controls src="static/audio/ours/Trumpet_2_Organ/magus.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Trumpet_2_Organ_ours/magus.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">DDPM-Friendly</h5>
-              <audio controls src="static/audio/ours/Trumpet_2_Organ/ddpm.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Trumpet_2_Organ_ours/ddpm.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">DDIM Inversion</h5>
-              <audio controls src="static/audio/ours/Trumpet_2_Organ/ddim.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Trumpet_2_Organ_ours/ddim.wav"></audio>
             </div>
           </div>
         </div>
-        <div class="example-card">
-          <h4 class="example-title"><code>Blues to Metal</code></h4>
-          <div class="comparison-grid">
-            <div class="source-item audio-item">
-              <h5 class="audio-item-title">Source Audio</h5>
-              <audio controls src="static/audio/ours/Blues_2_Metal/origin.wav"></audio>
-            </div>
-            <div class="audio-item is-highlight-red">
-              <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
-              <audio controls src="static/audio/ours/Blues_2_Metal/ours.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">SDEdit</h5>
-              <audio controls src="static/audio/ours/Blues_2_Metal/sdedit.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">MusicGen</h5>
-              <audio controls src="static/audio/ours/Blues_2_Metal/musicgen.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">MusicMagus</h5>
-              <audio controls src="static/audio/ours/Blues_2_Metal/magus.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">DDPM-Friendly</h5>
-              <audio controls src="static/audio/ours/Blues_2_Metal/ddpm.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">DDIM Inversion</h5>
-              <audio controls src="static/audio/ours/Blues_2_Metal/ddim.wav"></audio>
-            </div>
-          </div>
-        </div>
-        <div class="example-card">
-          <h4 class="example-title"><code>Rock to Classical</code></h4>
-          <div class="comparison-grid">
-            <div class="source-item audio-item">
-              <h5 class="audio-item-title">Source Audio</h5>
-              <audio controls src="static/audio/ours/Rock_2_Classical/origin.wav"></audio>
-            </div>
-            <div class="audio-item is-highlight-red">
-              <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
-              <audio controls src="static/audio/ours/Rock_2_Classical/ours.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">SDEdit</h5>
-              <audio controls src="static/audio/ours/Rock_2_Classical/sdedit.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">MusicGen</h5>
-              <audio controls src="static/audio/ours/Rock_2_Classical/musicgen.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">MusicMagus</h5>
-              <audio controls src="static/audio/ours/Rock_2_Classical/magus.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">DDPM-Friendly</h5>
-              <audio controls src="static/audio/ours/Rock_2_Classical/ddpm.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">DDIM Inversion</h5>
-              <audio controls src="static/audio/ours/Rock_2_Classical/ddim.wav"></audio>
-            </div>
-          </div>
-        </div>
-        <div class="example-card">
-          <h4 class="example-title"><code>Folk to Reggae</code></h4>
-          <div class="comparison-grid">
-            <div class="source-item audio-item">
-              <h5 class="audio-item-title">Source Audio</h5>
-              <audio controls src="static/audio/ours/Folk_2_Reggae/origin.wav"></audio>
-            </div>
-            <div class="audio-item is-highlight-red">
-              <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
-              <audio controls src="static/audio/ours/Folk_2_Reggae/ours.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">SDEdit</h5>
-              <audio controls src="static/audio/ours/Folk_2_Reggae/sdedit.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">MusicGen</h5>
-              <audio controls src="static/audio/ours/Folk_2_Reggae/musicgen.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">MusicMagus</h5>
-              <audio controls src="static/audio/ours/Folk_2_Reggae/magus.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">DDPM-Friendly</h5>
-              <audio controls src="static/audio/ours/Folk_2_Reggae/ddpm.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">DDIM Inversion</h5>
-              <audio controls src="static/audio/ours/Folk_2_Reggae/ddim.wav"></audio>
-            </div>
-          </div>
-        </div>
-        <div class="example-card">
-          <h4 class="example-title"><code>Tense to Peaceful</code><span class="citation">(From Figure 6)</span></h4>
-          <div class="comparison-grid">
-            <div class="source-item audio-item">
-              <h5 class="audio-item-title">Source Audio</h5>
-              <audio controls src="static/audio/ours/Tense_2_Peaceful_(From_Figure_6)/origin.wav"></audio>
-            </div>
-            <div class="audio-item is-highlight-red">
-              <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
-              <audio controls src="static/audio/ours/Tense_2_Peaceful_(From_Figure_6)/ours.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">SDEdit</h5>
-              <audio controls src="static/audio/ours/Tense_2_Peaceful_(From_Figure_6)/sdedit.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">MusicGen</h5>
-              <audio controls src="static/audio/ours/Tense_2_Peaceful_(From_Figure_6)/musicgen.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">MusicMagus</h5>
-              <audio controls src="static/audio/ours/Tense_2_Peaceful_(From_Figure_6)/magus.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">DDPM-Friendly</h5>
-              <audio controls src="static/audio/ours/Tense_2_Peaceful_(From_Figure_6)/ddpm.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">DDIM Inversion</h5>
-              <audio controls src="static/audio/ours/Tense_2_Peaceful_(From_Figure_6)/ddim.wav"></audio>
-            </div>
-          </div>
-        </div>
-        <div class="example-card">
-          <h4 class="example-title"><code>Happy to Sad</code></h4>
-          <div class="comparison-grid">
-            <div class="source-item audio-item">
-              <h5 class="audio-item-title">Source Audio</h5>
-              <audio controls src="static/audio/ours/Happy_2_Sad/origin.wav"></audio>
-            </div>
-            <div class="audio-item is-highlight-red">
-              <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
-              <audio controls src="static/audio/ours/Happy_2_Sad/ours.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">SDEdit</h5>
-              <audio controls src="static/audio/ours/Happy_2_Sad/sdedit.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">MusicGen</h5>
-              <audio controls src="static/audio/ours/Happy_2_Sad/musicgen.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">MusicMagus</h5>
-              <audio controls src="static/audio/ours/Happy_2_Sad/magus.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">DDPM-Friendly</h5>
-              <audio controls src="static/audio/ours/Happy_2_Sad/ddpm.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">DDIM Inversion</h5>
-              <audio controls src="static/audio/ours/Happy_2_Sad/ddim.wav"></audio>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tab Content: Musicdelta -->
-      <div id="musicdelta" class="tab-content">
         <div class="example-card">
           <h4 class="example-title"><code>Guitar to Trumpet</code></h4>
           <div class="comparison-grid">
             <div class="source-item audio-item">
               <h5 class="audio-item-title">Source Audio</h5>
-              <audio controls src="static/audio/musicdelta/Guitar_2_Trumpet/origin.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Guitar_2_Trumpet_musicdelta/origin.wav"></audio>
             </div>
             <div class="audio-item is-highlight-red">
               <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
-              <audio controls src="static/audio/musicdelta/Guitar_2_Trumpet/ours.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Guitar_2_Trumpet_musicdelta/ours.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">SDEdit</h5>
-              <audio controls src="static/audio/musicdelta/Guitar_2_Trumpet/sdedit.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Guitar_2_Trumpet_musicdelta/sdedit.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">MusicGen</h5>
-              <audio controls src="static/audio/musicdelta/Guitar_2_Trumpet/gen.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Guitar_2_Trumpet_musicdelta/gen.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">MusicMagus</h5>
-              <audio controls src="static/audio/musicdelta/Guitar_2_Trumpet/magus.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Guitar_2_Trumpet_musicdelta/magus.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">DDPM-Friendly</h5>
-              <audio controls src="static/audio/musicdelta/Guitar_2_Trumpet/ddpm.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Guitar_2_Trumpet_musicdelta/ddpm.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">DDIM Inversion</h5>
-              <audio controls src="static/audio/musicdelta/Guitar_2_Trumpet/ddim.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Guitar_2_Trumpet_musicdelta/ddim.wav"></audio>
             </div>
           </div>
         </div>
@@ -750,31 +648,31 @@
           <div class="comparison-grid">
             <div class="source-item audio-item">
               <h5 class="audio-item-title">Source Audio</h5>
-              <audio controls src="static/audio/musicdelta/Man_2_Trumpet/origin.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Man_2_Trumpet_musicdelta/origin.wav"></audio>
             </div>
             <div class="audio-item is-highlight-red">
               <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
-              <audio controls src="static/audio/musicdelta/Man_2_Trumpet/ours.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Man_2_Trumpet_musicdelta/ours.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">SDEdit</h5>
-              <audio controls src="static/audio/musicdelta/Man_2_Trumpet/sdedit.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Man_2_Trumpet_musicdelta/sdedit.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">MusicGen</h5>
-              <audio controls src="static/audio/musicdelta/Man_2_Trumpet/gen.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Man_2_Trumpet_musicdelta/gen.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">MusicMagus</h5>
-              <audio controls src="static/audio/musicdelta/Man_2_Trumpet/magus.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Man_2_Trumpet_musicdelta/magus.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">DDPM-Friendly</h5>
-              <audio controls src="static/audio/musicdelta/Man_2_Trumpet/ddpm.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Man_2_Trumpet_musicdelta/ddpm.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">DDIM Inversion</h5>
-              <audio controls src="static/audio/musicdelta/Man_2_Trumpet/ddim.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Man_2_Trumpet_musicdelta/ddim.wav"></audio>
             </div>
           </div>
         </div>
@@ -783,200 +681,64 @@
           <div class="comparison-grid">
             <div class="source-item audio-item">
               <h5 class="audio-item-title">Source Audio</h5>
-              <audio controls src="static/audio/musicdelta/Clarinet_2_Guitar&Jazz_2_Metal/origin.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Clarinet_2_Guitar&Jazz_2_Metal_musicdelta/origin.wav"></audio>
             </div>
             <div class="audio-item is-highlight-red">
               <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
-              <audio controls src="static/audio/musicdelta/Clarinet_2_Guitar&Jazz_2_Metal/ours.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Clarinet_2_Guitar&Jazz_2_Metal_musicdelta/ours.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">SDEdit</h5>
-              <audio controls src="static/audio/musicdelta/Clarinet_2_Guitar&Jazz_2_Metal/sdedit.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Clarinet_2_Guitar&Jazz_2_Metal_musicdelta/sdedit.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">MusicGen</h5>
-              <audio controls src="static/audio/musicdelta/Clarinet_2_Guitar&Jazz_2_Metal/musicgen.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Clarinet_2_Guitar&Jazz_2_Metal_musicdelta/musicgen.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">MusicMagus</h5>
-              <audio controls src="static/audio/musicdelta/Clarinet_2_Guitar&Jazz_2_Metal/magus.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Clarinet_2_Guitar&Jazz_2_Metal_musicdelta/magus.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">DDPM-Friendly</h5>
-              <audio controls src="static/audio/musicdelta/Clarinet_2_Guitar&Jazz_2_Metal/ddpm.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Clarinet_2_Guitar&Jazz_2_Metal_musicdelta/ddpm.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">DDIM Inversion</h5>
-              <audio controls src="static/audio/musicdelta/Clarinet_2_Guitar&Jazz_2_Metal/ddim.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Clarinet_2_Guitar&Jazz_2_Metal_musicdelta/ddim.wav"></audio>
             </div>
           </div>
         </div>
-        <div class="example-card">
-          <h4 class="example-title"><code>Jazz to Metal</code></h4>
-          <div class="comparison-grid">
-            <div class="source-item audio-item">
-              <h5 class="audio-item-title">Source Audio</h5>
-              <audio controls src="static/audio/musicdelta/Jazz_2_Metal/origin.wav"></audio>
-            </div>
-            <div class="audio-item is-highlight-red">
-              <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
-              <audio controls src="static/audio/musicdelta/Jazz_2_Metal/ours.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">SDEdit</h5>
-              <audio controls src="static/audio/musicdelta/Jazz_2_Metal/sdedit.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">MusicGen</h5>
-              <audio controls src="static/audio/musicdelta/Jazz_2_Metal/musicgen.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">MusicMagus</h5>
-              <audio controls src="static/audio/musicdelta/Jazz_2_Metal/magus.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">DDPM-Friendly</h5>
-              <audio controls src="static/audio/musicdelta/Jazz_2_Metal/ddpm.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">DDIM Inversion</h5>
-              <audio controls src="static/audio/musicdelta/Jazz_2_Metal/ddim.wav"></audio>
-            </div>
-          </div>
-        </div>
-        <div class="example-card">
-          <h4 class="example-title"><code>Classical to Country</code></h4>
-          <div class="comparison-grid">
-            <div class="source-item audio-item">
-              <h5 class="audio-item-title">Source Audio</h5>
-              <audio controls src="static/audio/musicdelta/Classical_2_Country/origin.wav"></audio>
-            </div>
-            <div class="audio-item is-highlight-red">
-              <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
-              <audio controls src="static/audio/musicdelta/Classical_2_Country/ours.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">SDEdit</h5>
-              <audio controls src="static/audio/musicdelta/Classical_2_Country/sdedit.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">MusicGen</h5>
-              <audio controls src="static/audio/musicdelta/Classical_2_Country/musicgen.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">MusicMagus</h5>
-              <audio controls src="static/audio/musicdelta/Classical_2_Country/magus.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">DDPM-Friendly</h5>
-              <audio controls src="static/audio/musicdelta/Classical_2_Country/ddpm.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">DDIM Inversion</h5>
-              <audio controls src="static/audio/musicdelta/Classical_2_Country/ddim.wav"></audio>
-            </div>
-          </div>
-        </div>
-        <div class="example-card">
-          <h4 class="example-title"><code>Jazz to Classical</code></h4>
-          <div class="comparison-grid">
-            <div class="source-item audio-item">
-              <h5 class="audio-item-title">Source Audio</h5>
-              <audio controls src="static/audio/musicdelta/Jazz_2_Classical/origin.wav"></audio>
-            </div>
-            <div class="audio-item is-highlight-red">
-              <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
-              <audio controls src="static/audio/musicdelta/Jazz_2_Classical/ours.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">SDEdit</h5>
-              <audio controls src="static/audio/musicdelta/Jazz_2_Classical/sdedit.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">MusicGen</h5>
-              <audio controls src="static/audio/musicdelta/Jazz_2_Classical/gen.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">MusicMagus</h5>
-              <audio controls src="static/audio/musicdelta/Jazz_2_Classical/magus.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">DDPM-Friendly</h5>
-              <audio controls src="static/audio/musicdelta/Jazz_2_Classical/ddpm.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">DDIM Inversion</h5>
-              <audio controls src="static/audio/musicdelta/Jazz_2_Classical/ddim.wav"></audio>
-            </div>
-          </div>
-        </div>
-        <div class="example-card">
-          <h4 class="example-title"><code>Mysterious to Epic Movie Soundtrack</code></h4>
-          <div class="comparison-grid">
-            <div class="source-item audio-item">
-              <h5 class="audio-item-title">Source Audio</h5>
-              <audio controls src="static/audio/musicdelta/Mysterious_2_Epic_Movie_Soundtrack/origin.wav"></audio>
-            </div>
-            <div class="audio-item is-highlight-red">
-              <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
-              <audio controls src="static/audio/musicdelta/Mysterious_2_Epic_Movie_Soundtrack/ours.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">SDEdit</h5>
-              <audio controls src="static/audio/musicdelta/Mysterious_2_Epic_Movie_Soundtrack/sdedit.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">MusicGen</h5>
-              <audio controls src="static/audio/musicdelta/Mysterious_2_Epic_Movie_Soundtrack/musicgen.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">MusicMagus</h5>
-              <audio controls src="static/audio/musicdelta/Mysterious_2_Epic_Movie_Soundtrack/magus.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">DDPM-Friendly</h5>
-              <audio controls src="static/audio/musicdelta/Mysterious_2_Epic_Movie_Soundtrack/ddpm.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">DDIM Inversion</h5>
-              <audio controls src="static/audio/musicdelta/Mysterious_2_Epic_Movie_Soundtrack/ddim.wav"></audio>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tab Content: zoME-Bench -->
-      <div id="zome" class="tab-content">
         <div class="example-card">
           <h4 class="example-title"><code>Violin to Piano</code></h4>
           <div class="comparison-grid">
             <div class="source-item audio-item">
               <h5 class="audio-item-title">Source Audio</h5>
-              <audio controls src="static/audio/zome/Violin_2_Piano/origin.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Violin_2_Piano_zome/origin.wav"></audio>
             </div>
             <div class="audio-item is-highlight-red">
               <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
-              <audio controls src="static/audio/zome/Violin_2_Piano/ours.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Violin_2_Piano_zome/ours.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">SDEdit</h5>
-              <audio controls src="static/audio/zome/Violin_2_Piano/sdedit.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Violin_2_Piano_zome/sdedit.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">MusicGen</h5>
-              <audio controls src="static/audio/zome/Violin_2_Piano/musicgen.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Violin_2_Piano_zome/musicgen.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">MusicMagus</h5>
-              <audio controls src="static/audio/zome/Violin_2_Piano/magus.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Violin_2_Piano_zome/magus.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">DDPM-Friendly</h5>
-              <audio controls src="static/audio/zome/Violin_2_Piano/ddpm.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Violin_2_Piano_zome/ddpm.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">DDIM Inversion</h5>
-              <audio controls src="static/audio/zome/Violin_2_Piano/ddim.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Violin_2_Piano_zome/ddim.wav"></audio>
             </div>
           </div>
         </div>
@@ -985,31 +747,31 @@
           <div class="comparison-grid">
             <div class="source-item audio-item">
               <h5 class="audio-item-title">Source Audio</h5>
-              <audio controls src="static/audio/zome/Guitar_2_Violin/origin.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Guitar_2_Violin_zome/origin.wav"></audio>
             </div>
             <div class="audio-item is-highlight-red">
               <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
-              <audio controls src="static/audio/zome/Guitar_2_Violin/ours.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Guitar_2_Violin_zome/ours.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">SDEdit</h5>
-              <audio controls src="static/audio/zome/Guitar_2_Violin/sdedit.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Guitar_2_Violin_zome/sdedit.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">MusicGen</h5>
-              <audio controls src="static/audio/zome/Guitar_2_Violin/musicgen.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Guitar_2_Violin_zome/musicgen.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">MusicMagus</h5>
-              <audio controls src="static/audio/zome/Guitar_2_Violin/magus.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Guitar_2_Violin_zome/magus.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">DDPM-Friendly</h5>
-              <audio controls src="static/audio/zome/Guitar_2_Violin/ddpm.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Guitar_2_Violin_zome/ddpm.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">DDIM Inversion</h5>
-              <audio controls src="static/audio/zome/Guitar_2_Violin/ddim.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Guitar_2_Violin_zome/ddim.wav"></audio>
             </div>
           </div>
         </div>
@@ -1018,97 +780,68 @@
           <div class="comparison-grid">
             <div class="source-item audio-item">
               <h5 class="audio-item-title">Source Audio</h5>
-              <audio controls src="static/audio/zome/Drum_2_Bass/origin.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Drum_2_Bass_zome/origin.wav"></audio>
             </div>
             <div class="audio-item is-highlight-red">
               <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
-              <audio controls src="static/audio/zome/Drum_2_Bass/ours.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Drum_2_Bass_zome/ours.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">SDEdit</h5>
-              <audio controls src="static/audio/zome/Drum_2_Bass/sdedit.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Drum_2_Bass_zome/sdedit.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">MusicGen</h5>
-              <audio controls src="static/audio/zome/Drum_2_Bass/musicgen.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Drum_2_Bass_zome/musicgen.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">MusicMagus</h5>
-              <audio controls src="static/audio/zome/Drum_2_Bass/magus.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Drum_2_Bass_zome/magus.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">DDPM-Friendly</h5>
-              <audio controls src="static/audio/zome/Drum_2_Bass/ddpm.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Drum_2_Bass_zome/ddpm.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">DDIM Inversion</h5>
-              <audio controls src="static/audio/zome/Drum_2_Bass/ddim.wav"></audio>
+              <audio controls src="static/audio/Timbre_Transfer/Drum_2_Bass_zome/ddim.wav"></audio>
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- Tab Content: Style Transfer -->
+      <div id="style" class="tab-content">
         <div class="example-card">
-          <h4 class="example-title"><code>Rock to Jazz</code></h4>
+          <h4 class="example-title"><code>Blues to Metal</code></h4>
           <div class="comparison-grid">
             <div class="source-item audio-item">
               <h5 class="audio-item-title">Source Audio</h5>
-              <audio controls src="static/audio/zome/Rock_2_Jazz/origin.wav"></audio>
+              <audio controls src="static/audio/Style_Transfer/Blues_2_Metal_ours/origin.wav"></audio>
             </div>
             <div class="audio-item is-highlight-red">
               <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
-              <audio controls src="static/audio/zome/Rock_2_Jazz/ours.wav"></audio>
+              <audio controls src="static/audio/Style_Transfer/Blues_2_Metal_ours/ours.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">SDEdit</h5>
-              <audio controls src="static/audio/zome/Rock_2_Jazz/sdedit.wav"></audio>
+              <audio controls src="static/audio/Style_Transfer/Blues_2_Metal_ours/sdedit.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">MusicGen</h5>
-              <audio controls src="static/audio/zome/Rock_2_Jazz/musicgen.wav"></audio>
+              <audio controls src="static/audio/Style_Transfer/Blues_2_Metal_ours/musicgen.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">MusicMagus</h5>
-              <audio controls src="static/audio/zome/Rock_2_Jazz/magus.wav"></audio>
+              <audio controls src="static/audio/Style_Transfer/Blues_2_Metal_ours/magus.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">DDPM-Friendly</h5>
-              <audio controls src="static/audio/zome/Rock_2_Jazz/ddpm.wav"></audio>
+              <audio controls src="static/audio/Style_Transfer/Blues_2_Metal_ours/ddpm.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">DDIM Inversion</h5>
-              <audio controls src="static/audio/zome/Rock_2_Jazz/ddim.wav"></audio>
-            </div>
-          </div>
-        </div>
-        <div class="example-card">
-          <h4 class="example-title"><code>Jazz to Hiphop</code></h4>
-          <div class="comparison-grid">
-            <div class="source-item audio-item">
-              <h5 class="audio-item-title">Source Audio</h5>
-              <audio controls src="static/audio/zome/Jazz_2_Hiphop/origin.wav"></audio>
-            </div>
-            <div class="audio-item is-highlight-red">
-              <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
-              <audio controls src="static/audio/zome/Jazz_2_Hiphop/ours.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">SDEdit</h5>
-              <audio controls src="static/audio/zome/Jazz_2_Hiphop/sdedit.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">MusicGen</h5>
-              <audio controls src="static/audio/zome/Jazz_2_Hiphop/musicgen.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">MusicMagus</h5>
-              <audio controls src="static/audio/zome/Jazz_2_Hiphop/magus.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">DDPM-Friendly</h5>
-              <audio controls src="static/audio/zome/Jazz_2_Hiphop/ddpm.wav"></audio>
-            </div>
-            <div class="audio-item">
-              <h5 class="audio-item-title">DDIM Inversion</h5>
-              <audio controls src="static/audio/zome/Jazz_2_Hiphop/ddim.wav"></audio>
+              <audio controls src="static/audio/Style_Transfer/Blues_2_Metal_ours/ddim.wav"></audio>
             </div>
           </div>
         </div>
@@ -1117,31 +850,398 @@
           <div class="comparison-grid">
             <div class="source-item audio-item">
               <h5 class="audio-item-title">Source Audio</h5>
-              <audio controls src="static/audio/zome/Rock_2_Classical/origin.wav"></audio>
+              <audio controls src="static/audio/Style_Transfer/Rock_2_Classical_ours/origin.wav"></audio>
             </div>
             <div class="audio-item is-highlight-red">
               <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
-              <audio controls src="static/audio/zome/Rock_2_Classical/ours.wav"></audio>
+              <audio controls src="static/audio/Style_Transfer/Rock_2_Classical_ours/ours.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">SDEdit</h5>
-              <audio controls src="static/audio/zome/Rock_2_Classical/sdedit.wav"></audio>
+              <audio controls src="static/audio/Style_Transfer/Rock_2_Classical_ours/sdedit.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">MusicGen</h5>
-              <audio controls src="static/audio/zome/Rock_2_Classical/musicgen.wav"></audio>
+              <audio controls src="static/audio/Style_Transfer/Rock_2_Classical_ours/musicgen.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">MusicMagus</h5>
-              <audio controls src="static/audio/zome/Rock_2_Classical/magus.wav"></audio>
+              <audio controls src="static/audio/Style_Transfer/Rock_2_Classical_ours/magus.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">DDPM-Friendly</h5>
-              <audio controls src="static/audio/zome/Rock_2_Classical/ddpm.wav"></audio>
+              <audio controls src="static/audio/Style_Transfer/Rock_2_Classical_ours/ddpm.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">DDIM Inversion</h5>
-              <audio controls src="static/audio/zome/Rock_2_Classical/ddim.wav"></audio>
+              <audio controls src="static/audio/Style_Transfer/Rock_2_Classical_ours/ddim.wav"></audio>
+            </div>
+          </div>
+        </div>
+        <div class="example-card">
+          <h4 class="example-title"><code>Folk to Reggae</code></h4>
+          <div class="comparison-grid">
+            <div class="source-item audio-item">
+              <h5 class="audio-item-title">Source Audio</h5>
+              <audio controls src="static/audio/Style_Transfer/Folk_2_Reggae_ours/origin.wav"></audio>
+            </div>
+            <div class="audio-item is-highlight-red">
+              <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
+              <audio controls src="static/audio/Style_Transfer/Folk_2_Reggae_ours/ours.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">SDEdit</h5>
+              <audio controls src="static/audio/Style_Transfer/Folk_2_Reggae_ours/sdedit.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicGen</h5>
+              <audio controls src="static/audio/Style_Transfer/Folk_2_Reggae_ours/musicgen.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicMagus</h5>
+              <audio controls src="static/audio/Style_Transfer/Folk_2_Reggae_ours/magus.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDPM-Friendly</h5>
+              <audio controls src="static/audio/Style_Transfer/Folk_2_Reggae_ours/ddpm.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDIM Inversion</h5>
+              <audio controls src="static/audio/Style_Transfer/Folk_2_Reggae_ours/ddim.wav"></audio>
+            </div>
+          </div>
+        </div>
+        <div class="example-card">
+          <h4 class="example-title"><code>Jazz to Metal</code></h4>
+          <div class="comparison-grid">
+            <div class="source-item audio-item">
+              <h5 class="audio-item-title">Source Audio</h5>
+              <audio controls src="static/audio/Style_Transfer/Jazz_2_Metal_musicdelta/origin.wav"></audio>
+            </div>
+            <div class="audio-item is-highlight-red">
+              <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
+              <audio controls src="static/audio/Style_Transfer/Jazz_2_Metal_musicdelta/ours.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">SDEdit</h5>
+              <audio controls src="static/audio/Style_Transfer/Jazz_2_Metal_musicdelta/sdedit.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicGen</h5>
+              <audio controls src="static/audio/Style_Transfer/Jazz_2_Metal_musicdelta/musicgen.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicMagus</h5>
+              <audio controls src="static/audio/Style_Transfer/Jazz_2_Metal_musicdelta/magus.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDPM-Friendly</h5>
+              <audio controls src="static/audio/Style_Transfer/Jazz_2_Metal_musicdelta/ddpm.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDIM Inversion</h5>
+              <audio controls src="static/audio/Style_Transfer/Jazz_2_Metal_musicdelta/ddim.wav"></audio>
+            </div>
+          </div>
+        </div>
+        <div class="example-card">
+          <h4 class="example-title"><code>Classical to Country</code></h4>
+          <div class="comparison-grid">
+            <div class="source-item audio-item">
+              <h5 class="audio-item-title">Source Audio</h5>
+              <audio controls src="static/audio/Style_Transfer/Classical_2_Country_musicdelta/origin.wav"></audio>
+            </div>
+            <div class="audio-item is-highlight-red">
+              <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
+              <audio controls src="static/audio/Style_Transfer/Classical_2_Country_musicdelta/ours.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">SDEdit</h5>
+              <audio controls src="static/audio/Style_Transfer/Classical_2_Country_musicdelta/sdedit.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicGen</h5>
+              <audio controls src="static/audio/Style_Transfer/Classical_2_Country_musicdelta/musicgen.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicMagus</h5>
+              <audio controls src="static/audio/Style_Transfer/Classical_2_Country_musicdelta/magus.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDPM-Friendly</h5>
+              <audio controls src="static/audio/Style_Transfer/Classical_2_Country_musicdelta/ddpm.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDIM Inversion</h5>
+              <audio controls src="static/audio/Style_Transfer/Classical_2_Country_musicdelta/ddim.wav"></audio>
+            </div>
+          </div>
+        </div>
+        <div class="example-card">
+          <h4 class="example-title"><code>Jazz to Classical</code></h4>
+          <div class="comparison-grid">
+            <div class="source-item audio-item">
+              <h5 class="audio-item-title">Source Audio</h5>
+              <audio controls src="static/audio/Style_Transfer/Jazz_2_Classical_musicdelta/origin.wav"></audio>
+            </div>
+            <div class="audio-item is-highlight-red">
+              <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
+              <audio controls src="static/audio/Style_Transfer/Jazz_2_Classical_musicdelta/ours.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">SDEdit</h5>
+              <audio controls src="static/audio/Style_Transfer/Jazz_2_Classical_musicdelta/sdedit.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicGen</h5>
+              <audio controls src="static/audio/Style_Transfer/Jazz_2_Classical_musicdelta/gen.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicMagus</h5>
+              <audio controls src="static/audio/Style_Transfer/Jazz_2_Classical_musicdelta/magus.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDPM-Friendly</h5>
+              <audio controls src="static/audio/Style_Transfer/Jazz_2_Classical_musicdelta/ddpm.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDIM Inversion</h5>
+              <audio controls src="static/audio/Style_Transfer/Jazz_2_Classical_musicdelta/ddim.wav"></audio>
+            </div>
+          </div>
+        </div>
+        <div class="example-card">
+          <h4 class="example-title"><code>Clarinet to Guitar ＆ Jazz to Metal</code></h4>
+          <div class="comparison-grid">
+            <div class="source-item audio-item">
+              <h5 class="audio-item-title">Source Audio</h5>
+              <audio controls src="static/audio/Style_Transfer/Clarinet_2_Guitar&Jazz_2_Metal_musicdelta/origin.wav"></audio>
+            </div>
+            <div class="audio-item is-highlight-red">
+              <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
+              <audio controls src="static/audio/Style_Transfer/Clarinet_2_Guitar&Jazz_2_Metal_musicdelta/ours.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">SDEdit</h5>
+              <audio controls src="static/audio/Style_Transfer/Clarinet_2_Guitar&Jazz_2_Metal_musicdelta/sdedit.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicGen</h5>
+              <audio controls src="static/audio/Style_Transfer/Clarinet_2_Guitar&Jazz_2_Metal_musicdelta/musicgen.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicMagus</h5>
+              <audio controls src="static/audio/Style_Transfer/Clarinet_2_Guitar&Jazz_2_Metal_musicdelta/magus.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDPM-Friendly</h5>
+              <audio controls src="static/audio/Style_Transfer/Clarinet_2_Guitar&Jazz_2_Metal_musicdelta/ddpm.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDIM Inversion</h5>
+              <audio controls src="static/audio/Style_Transfer/Clarinet_2_Guitar&Jazz_2_Metal_musicdelta/ddim.wav"></audio>
+            </div>
+          </div>
+        </div>
+        <div class="example-card">
+          <h4 class="example-title"><code>Rock to Jazz</code></h4>
+          <div class="comparison-grid">
+            <div class="source-item audio-item">
+              <h5 class="audio-item-title">Source Audio</h5>
+              <audio controls src="static/audio/Style_Transfer/Rock_2_Jazz_zome/origin.wav"></audio>
+            </div>
+            <div class="audio-item is-highlight-red">
+              <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
+              <audio controls src="static/audio/Style_Transfer/Rock_2_Jazz_zome/ours.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">SDEdit</h5>
+              <audio controls src="static/audio/Style_Transfer/Rock_2_Jazz_zome/sdedit.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicGen</h5>
+              <audio controls src="static/audio/Style_Transfer/Rock_2_Jazz_zome/musicgen.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicMagus</h5>
+              <audio controls src="static/audio/Style_Transfer/Rock_2_Jazz_zome/magus.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDPM-Friendly</h5>
+              <audio controls src="static/audio/Style_Transfer/Rock_2_Jazz_zome/ddpm.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDIM Inversion</h5>
+              <audio controls src="static/audio/Style_Transfer/Rock_2_Jazz_zome/ddim.wav"></audio>
+            </div>
+          </div>
+        </div>
+        <div class="example-card">
+          <h4 class="example-title"><code>Jazz to Hiphop</code></h4>
+          <div class="comparison-grid">
+            <div class="source-item audio-item">
+              <h5 class="audio-item-title">Source Audio</h5>
+              <audio controls src="static/audio/Style_Transfer/Jazz_2_Hiphop_zome/origin.wav"></audio>
+            </div>
+            <div class="audio-item is-highlight-red">
+              <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
+              <audio controls src="static/audio/Style_Transfer/Jazz_2_Hiphop_zome/ours.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">SDEdit</h5>
+              <audio controls src="static/audio/Style_Transfer/Jazz_2_Hiphop_zome/sdedit.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicGen</h5>
+              <audio controls src="static/audio/Style_Transfer/Jazz_2_Hiphop_zome/musicgen.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicMagus</h5>
+              <audio controls src="static/audio/Style_Transfer/Jazz_2_Hiphop_zome/magus.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDPM-Friendly</h5>
+              <audio controls src="static/audio/Style_Transfer/Jazz_2_Hiphop_zome/ddpm.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDIM Inversion</h5>
+              <audio controls src="static/audio/Style_Transfer/Jazz_2_Hiphop_zome/ddim.wav"></audio>
+            </div>
+          </div>
+        </div>
+        <div class="example-card">
+          <h4 class="example-title"><code>Rock to Classical</code></h4>
+          <div class="comparison-grid">
+            <div class="source-item audio-item">
+              <h5 class="audio-item-title">Source Audio</h5>
+              <audio controls src="static/audio/Style_Transfer/Rock_2_Classical_zome/origin.wav"></audio>
+            </div>
+            <div class="audio-item is-highlight-red">
+              <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
+              <audio controls src="static/audio/Style_Transfer/Rock_2_Classical_zome/ours.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">SDEdit</h5>
+              <audio controls src="static/audio/Style_Transfer/Rock_2_Classical_zome/sdedit.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicGen</h5>
+              <audio controls src="static/audio/Style_Transfer/Rock_2_Classical_zome/musicgen.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicMagus</h5>
+              <audio controls src="static/audio/Style_Transfer/Rock_2_Classical_zome/magus.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDPM-Friendly</h5>
+              <audio controls src="static/audio/Style_Transfer/Rock_2_Classical_zome/ddpm.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDIM Inversion</h5>
+              <audio controls src="static/audio/Style_Transfer/Rock_2_Classical_zome/ddim.wav"></audio>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Content: Mood Transfer -->
+      <div id="mood" class="tab-content">
+        <div class="example-card">
+          <h4 class="example-title"><code>Tense to Peaceful</code><span class="citation">(From Figure 6)</span></h4>
+          <div class="comparison-grid">
+            <div class="source-item audio-item">
+              <h5 class="audio-item-title">Source Audio</h5>
+              <audio controls src="static/audio/Mood_Transfer/Tense_2_Peaceful_(From_Figure_6)_ours/origin.wav"></audio>
+            </div>
+            <div class="audio-item is-highlight-red">
+              <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
+              <audio controls src="static/audio/Mood_Transfer/Tense_2_Peaceful_(From_Figure_6)_ours/ours.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">SDEdit</h5>
+              <audio controls src="static/audio/Mood_Transfer/Tense_2_Peaceful_(From_Figure_6)_ours/sdedit.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicGen</h5>
+              <audio controls src="static/audio/Mood_Transfer/Tense_2_Peaceful_(From_Figure_6)_ours/musicgen.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicMagus</h5>
+              <audio controls src="static/audio/Mood_Transfer/Tense_2_Peaceful_(From_Figure_6)_ours/magus.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDPM-Friendly</h5>
+              <audio controls src="static/audio/Mood_Transfer/Tense_2_Peaceful_(From_Figure_6)_ours/ddpm.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDIM Inversion</h5>
+              <audio controls src="static/audio/Mood_Transfer/Tense_2_Peaceful_(From_Figure_6)_ours/ddim.wav"></audio>
+            </div>
+          </div>
+        </div>
+        <div class="example-card">
+          <h4 class="example-title"><code>Happy to Sad</code></h4>
+          <div class="comparison-grid">
+            <div class="source-item audio-item">
+              <h5 class="audio-item-title">Source Audio</h5>
+              <audio controls src="static/audio/Mood_Transfer/Happy_2_Sad_ours/origin.wav"></audio>
+            </div>
+            <div class="audio-item is-highlight-red">
+              <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
+              <audio controls src="static/audio/Mood_Transfer/Happy_2_Sad_ours/ours.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">SDEdit</h5>
+              <audio controls src="static/audio/Mood_Transfer/Happy_2_Sad_ours/sdedit.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicGen</h5>
+              <audio controls src="static/audio/Mood_Transfer/Happy_2_Sad_ours/musicgen.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicMagus</h5>
+              <audio controls src="static/audio/Mood_Transfer/Happy_2_Sad_ours/magus.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDPM-Friendly</h5>
+              <audio controls src="static/audio/Mood_Transfer/Happy_2_Sad_ours/ddpm.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDIM Inversion</h5>
+              <audio controls src="static/audio/Mood_Transfer/Happy_2_Sad_ours/ddim.wav"></audio>
+            </div>
+          </div>
+        </div>
+        <div class="example-card">
+          <h4 class="example-title"><code>Mysterious to Epic Movie Soundtrack</code></h4>
+          <div class="comparison-grid">
+            <div class="source-item audio-item">
+              <h5 class="audio-item-title">Source Audio</h5>
+              <audio controls src="static/audio/Mood_Transfer/Mysterious_2_Epic_Movie_Soundtrack_musicdelta/origin.wav"></audio>
+            </div>
+            <div class="audio-item is-highlight-red">
+              <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
+              <audio controls src="static/audio/Mood_Transfer/Mysterious_2_Epic_Movie_Soundtrack_musicdelta/ours.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">SDEdit</h5>
+              <audio controls src="static/audio/Mood_Transfer/Mysterious_2_Epic_Movie_Soundtrack_musicdelta/sdedit.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicGen</h5>
+              <audio controls src="static/audio/Mood_Transfer/Mysterious_2_Epic_Movie_Soundtrack_musicdelta/musicgen.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">MusicMagus</h5>
+              <audio controls src="static/audio/Mood_Transfer/Mysterious_2_Epic_Movie_Soundtrack_musicdelta/magus.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDPM-Friendly</h5>
+              <audio controls src="static/audio/Mood_Transfer/Mysterious_2_Epic_Movie_Soundtrack_musicdelta/ddpm.wav"></audio>
+            </div>
+            <div class="audio-item">
+              <h5 class="audio-item-title">DDIM Inversion</h5>
+              <audio controls src="static/audio/Mood_Transfer/Mysterious_2_Epic_Movie_Soundtrack_musicdelta/ddim.wav"></audio>
             </div>
           </div>
         </div>
@@ -1150,31 +1250,31 @@
           <div class="comparison-grid">
             <div class="source-item audio-item">
               <h5 class="audio-item-title">Source Audio</h5>
-              <audio controls src="static/audio/zome/Emotional_2_Happy/origin.wav"></audio>
+              <audio controls src="static/audio/Mood_Transfer/Emotional_2_Happy_zome/origin.wav"></audio>
             </div>
             <div class="audio-item is-highlight-red">
               <h5 class="audio-item-title"><i class="fas fa-star"></i>Melodia (Ours)</h5>
-              <audio controls src="static/audio/zome/Emotional_2_Happy/ours.wav"></audio>
+              <audio controls src="static/audio/Mood_Transfer/Emotional_2_Happy_zome/ours.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">SDEdit</h5>
-              <audio controls src="static/audio/zome/Emotional_2_Happy/sdedit.wav"></audio>
+              <audio controls src="static/audio/Mood_Transfer/Emotional_2_Happy_zome/sdedit.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">MusicGen</h5>
-              <audio controls src="static/audio/zome/Emotional_2_Happy/musicgen.wav"></audio>
+              <audio controls src="static/audio/Mood_Transfer/Emotional_2_Happy_zome/musicgen.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">MusicMagus</h5>
-              <audio controls src="static/audio/zome/Emotional_2_Happy/magus.wav"></audio>
+              <audio controls src="static/audio/Mood_Transfer/Emotional_2_Happy_zome/magus.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">DDPM-Friendly</h5>
-              <audio controls src="static/audio/zome/Emotional_2_Happy/ddpm.wav"></audio>
+              <audio controls src="static/audio/Mood_Transfer/Emotional_2_Happy_zome/ddpm.wav"></audio>
             </div>
             <div class="audio-item">
               <h5 class="audio-item-title">DDIM Inversion</h5>
-              <audio controls src="static/audio/zome/Emotional_2_Happy/ddim.wav"></audio>
+              <audio controls src="static/audio/Mood_Transfer/Emotional_2_Happy_zome/ddim.wav"></audio>
             </div>
           </div>
         </div>
